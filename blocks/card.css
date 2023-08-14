@@ -1,0 +1,46 @@
+.card__list {
+  display: grid;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 282px);
+  grid-gap: 20px 17px;
+  margin-top: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+}
+
+.card__image {
+  width: 282px;
+  height: 282px;
+}
+
+.card__info {
+  display: flex;
+  background-color: #fff;
+  margin: 0;
+  padding: 25px 20px 25px 20px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card__description {
+  font-size: 24px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__button-like {
+  background: transparent url(../images/like-icon.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+}
