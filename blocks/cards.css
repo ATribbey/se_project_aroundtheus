@@ -7,6 +7,8 @@
 }
 
 .cards__list {
+  margin-top: 0;
+  margin-bottom: 0;
   display: grid;
   list-style-type: none;
   padding: 0;
@@ -14,11 +16,4 @@
   grid-template-columns: repeat(auto-fill, 282px);
   grid-gap: 20px 17px;
   margin-top: 47.25px;
-}
-
-@media screen and (max-width: 480px) {
-  .cards__list {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
 }
