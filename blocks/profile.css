@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
-  padding-top: 36.25px;
+  padding-top: 38.25px;
 }
 
 .profile__image {
@@ -28,6 +28,10 @@
   line-height: 48px;
   grid-area: title;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 373px;
 }
 
 .profile__subheading {
@@ -51,6 +55,12 @@
   height: 24px;
   width: 24px;
   grid-area: button;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .profile__add-button {
@@ -61,6 +71,12 @@
   width: 150px;
   margin-left: auto;
   border-radius: 2px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profile__add-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
@@ -82,7 +98,7 @@
 
   .profile__name {
     font-size: 22px;
-    width: 196px;
+    max-width: 196px;
     line-height: normal;
     padding-top: 26.25px;
     padding-bottom: 14px;
