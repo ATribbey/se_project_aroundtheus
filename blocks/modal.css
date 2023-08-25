@@ -11,8 +11,8 @@
   padding: 0 19px;
 }
 
-.modal__opened {
-  /* display: none; */
+.modal_opened {
+  display: none;
 }
 
 .modal__container {
