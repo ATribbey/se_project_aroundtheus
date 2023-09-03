@@ -7,12 +7,12 @@
   left: 0;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   padding: 0 19px;
 }
 
 .modal_opened {
-  display: none;
+  display: flex;
 }
 
 .modal__container {
