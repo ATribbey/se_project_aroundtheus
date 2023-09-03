@@ -44,7 +44,7 @@ const cardListEl = document.querySelector(".cards__list");
 // FUNCTIONS
 
 function closePopUp() {
-  profileEditModal.classList.add("modal_closed");
+  profileEditModal.classList.add("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -53,8 +53,7 @@ function getCardElement(cardData) {
   cardImageEl.src = cardData.link;
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
-  const cardAltEl = cardElement.querySelector(".card__image").alt;
-  cardAltEl.textContent = cardImageEl.alt;
+  cardImageEl.alt = cardData.name;
   return cardElement;
 }
 
@@ -70,7 +69,7 @@ function handleProfileEditSubmit(e) {
 // EVENT LISTENERS
 
 profileEditBtn.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal_closed");
+  profileEditModal.classList.remove("modal_opened");
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 });
