@@ -72,6 +72,20 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
   cardImageEl.alt = cardData.name;
+
+  // find delete button
+
+  // add event listener to delete button
+  // cardElement.remove();
+
+  // add click listener to cardImageEl for new modal
+  // keep it DRY, use openModal(); with previewImageModal (this still needs to be found in the DOM)
+
+  const likeButton = cardElement.querySelector(".card__button-like");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__button-like_active");
+  });
+
   return cardElement;
 }
 
