@@ -30,6 +30,10 @@ const initialCards = [
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardList = document.querySelector(".cards__list");
+const previewModal = document.querySelector("#card-preview-modal");
+const previewModalClose = previewModal.querySelector(
+  "#card-preview-modal-close"
+);
 
 //--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
 
@@ -79,10 +83,6 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  const previewModal = document.querySelector("#card-preview-modal");
-  const previewModalClose = previewModal.querySelector(
-    "#card-preview-modal-close"
-  );
   const previewModalImage = previewModal.querySelector("#card-preview-image");
   const previewModalTitle = previewModal.querySelector(".modal__preview-title");
 
@@ -91,10 +91,6 @@ function getCardElement(cardData) {
     previewModalImage.alt = cardData.name;
     previewModalTitle.textContent = cardData.name;
     openModal(previewModal);
-  });
-
-  previewModalClose.addEventListener("click", () => {
-    closeModal(previewModal);
   });
 
   const likeButton = cardElement.querySelector(".card__button-like");
@@ -110,6 +106,10 @@ function renderCard(cardData) {
   cardList.prepend(cardElement);
 }
 
+function fillProfileForm() {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+}
 //--------------------EVENT HANDLERS-------------------->>
 
 function handleProfileEditSubmit(e) {
@@ -125,14 +125,18 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link });
   closeModal(addCardModal);
+  // cardTitleInput.reset();
+  // cardUrlInput.reset();
+  // I cannot seem to figure out how to properly use the two previous lines of code.
+  // It seems when I implement them, nothing happens.
+  // Where should I put them in order to make them work ?
 }
 
 //--------------------EVENT LISTENERS-------------------->>
 
 profileEditBtn.addEventListener("click", () => {
   openModal(profileEditModal);
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  fillProfileForm();
 });
 
 profileEditModalClose.addEventListener("click", () => {
@@ -155,3 +159,7 @@ initialCards.forEach((cardData) => {
 });
 
 cardAddForm.addEventListener("submit", handleAddCardFormSubmit);
+
+previewModalClose.addEventListener("click", () => {
+  closeModal(previewModal);
+});

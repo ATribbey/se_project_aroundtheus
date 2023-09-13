@@ -52,7 +52,11 @@
     <!--EDIT MODAL-->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="profile-edit-modal-close"></button>
+        <button
+          class="modal__close"
+          type="button"
+          id="profile-edit-modal-close"
+        ></button>
         <h3 class="modal__heading">Edit profile</h3>
         <form class="modal__form" id="profile-edit-form">
           <input
@@ -69,7 +73,7 @@
             name="description"
             placeholder="Description"
           />
-          <button class="modal__button">Save</button>
+          <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -77,7 +81,11 @@
     <!-- ADD CARD MODAL -->
     <div class="modal" id="profile-add-modal">
       <div class="modal__container">
-        <button class="modal__close" id="profile-add-modal-close"></button>
+        <button
+          class="modal__close"
+          type="button"
+          id="profile-add-modal-close"
+        ></button>
         <h3 class="modal__heading">Add Place</h3>
         <form class="modal__form" id="card-add-form">
           <input
@@ -86,6 +94,7 @@
             type="text"
             name="title"
             placeholder="Title"
+            required
           />
           <input
             class="modal__input"
@@ -93,8 +102,9 @@
             type="text"
             name="url"
             placeholder="Image URL"
+            required
           />
-          <button class="modal__button">Create</button>
+          <button class="modal__button" type="submit">Create</button>
         </form>
       </div>
     </div>
@@ -102,7 +112,11 @@
     <!-- ADD PICTURE PREVIEW MODAL -->
     <div class="modal" id="card-preview-modal">
       <div class="modal__container modal__container_preview">
-        <button class="modal__close" id="card-preview-modal-close"></button>
+        <button
+          class="modal__close"
+          type="button"
+          id="card-preview-modal-close"
+        ></button>
         <img src="#" alt="#" class="modal__preview" id="card-preview-image" />
         <h3 class="modal__preview-title"></h3>
       </div>
@@ -119,6 +133,6 @@
       </li>
     </template>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>
