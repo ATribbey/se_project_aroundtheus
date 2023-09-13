@@ -73,15 +73,12 @@ function getCardElement(cardData) {
   cardTitleEl.textContent = cardData.name;
   cardImageEl.alt = cardData.name;
 
-  // find delete button
   const deleteButton = cardElement.querySelector(".card__button-delete");
 
-  // add event listener to delete button
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
 
-  // find new modal in DOM
   const previewModal = document.querySelector("#card-preview-modal");
   const previewModalClose = previewModal.querySelector(
     "#card-preview-modal-close"
@@ -89,7 +86,6 @@ function getCardElement(cardData) {
   const previewModalImage = previewModal.querySelector("#card-preview-image");
   const previewModalTitle = previewModal.querySelector(".modal__title_preview");
 
-  // add click listener to cardImageEl for new modal
   cardImageEl.addEventListener("click", () => {
     previewModalImage.src = cardData.link;
     previewModalImage.alt = cardData.name;
@@ -97,12 +93,9 @@ function getCardElement(cardData) {
     openModal(previewModal);
   });
 
-  // add click listener to close button on preview modal
   previewModalClose.addEventListener("click", () => {
     closeModal(previewModal);
   });
-
-  // keep it DRY, use openModal(); / closeModal();
 
   const likeButton = cardElement.querySelector(".card__button-like");
   likeButton.addEventListener("click", () => {
