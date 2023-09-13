@@ -26,6 +26,14 @@
   padding-bottom: 36px;
 }
 
+.modal__container_preview {
+  max-width: 75vw;
+  max-height: 75vh;
+  height: auto;
+  width: auto;
+  background-color: transparent;
+}
+
 .modal__close {
   border: none;
   background-color: transparent;
@@ -95,6 +103,22 @@
   height: 48px;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.modal__preview {
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.modal__title_preview {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.5px;
+  max-width: 291px;
+  height: 12px;
 }
 
 @media screen and (max-width: 600px) {

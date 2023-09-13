@@ -81,8 +81,28 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
+  // find new modal in DOM
+  const previewModal = document.querySelector("#card-preview-modal");
+  const previewModalClose = previewModal.querySelector(
+    "#card-preview-modal-close"
+  );
+  const previewModalImage = previewModal.querySelector("#card-preview-image");
+  const previewModalTitle = previewModal.querySelector(".modal__title_preview");
+
   // add click listener to cardImageEl for new modal
-  // keep it DRY, use openModal(); with previewImageModal (this still needs to be found in the DOM)
+  cardImageEl.addEventListener("click", () => {
+    previewModalImage.src = cardData.link;
+    previewModalImage.alt = cardData.name;
+    previewModalTitle.textContent = cardData.name;
+    openModal(previewModal);
+  });
+
+  // add click listener to close button on preview modal
+  previewModalClose.addEventListener("click", () => {
+    closeModal(previewModal);
+  });
+
+  // keep it DRY, use openModal(); / closeModal();
 
   const likeButton = cardElement.querySelector(".card__button-like");
   likeButton.addEventListener("click", () => {
@@ -96,6 +116,7 @@ function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardList.prepend(cardElement);
 }
+
 //--------------------EVENT HANDLERS-------------------->>
 
 function handleProfileEditSubmit(e) {
