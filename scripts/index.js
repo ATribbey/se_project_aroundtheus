@@ -74,9 +74,12 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
 
   // find delete button
+  const deleteButton = cardElement.querySelector(".card__button-delete");
 
   // add event listener to delete button
-  // cardElement.remove();
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   // add click listener to cardImageEl for new modal
   // keep it DRY, use openModal(); with previewImageModal (this still needs to be found in the DOM)
