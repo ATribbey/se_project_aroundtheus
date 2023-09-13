@@ -84,7 +84,7 @@ function getCardElement(cardData) {
     "#card-preview-modal-close"
   );
   const previewModalImage = previewModal.querySelector("#card-preview-image");
-  const previewModalTitle = previewModal.querySelector(".modal__title_preview");
+  const previewModalTitle = previewModal.querySelector(".modal__preview-title");
 
   cardImageEl.addEventListener("click", () => {
     previewModalImage.src = cardData.link;
