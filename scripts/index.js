@@ -125,11 +125,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link });
   closeModal(addCardModal);
-  // cardTitleInput.reset();
-  // cardUrlInput.reset();
-  // I cannot seem to figure out how to properly use the two previous lines of code.
-  // It seems when I implement them, nothing happens.
-  // Where should I put them in order to make them work ?
+  e.target.reset();
 }
 
 //--------------------EVENT LISTENERS-------------------->>
