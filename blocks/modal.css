@@ -96,6 +96,20 @@
   margin-top: 0;
 }
 
+.modal__input_type_error {
+  margin-top: 5px;
+  color: #f00;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.modal__error_visible {
+  border-bottom: rgba(255, 0, 0, 0.8) solid 1px;
+}
+
 .modal__button {
   background-color: #000;
   color: #fff;
@@ -116,6 +130,13 @@
 
 .modal__button:hover {
   opacity: 0.8;
+}
+
+.modal__button_disabled {
+  color: #000;
+  border: 1px solid #000;
+  opacity: 0.2;
+  background: #f6f6f6;
 }
 
 .modal__preview {
