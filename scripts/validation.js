@@ -55,12 +55,6 @@ function setEventListeners(form, options) {
     form.querySelectorAll(options.inputSelector)
   );
 
-  // If input invalid
-  // Disable Button
-
-  // If input valid
-  // Enable button
-
   inputElements.forEach((input) => {
     input.addEventListener("input", (event) => {
       checkInputValidity(form, input, options);
