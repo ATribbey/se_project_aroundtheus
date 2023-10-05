@@ -34,6 +34,7 @@ const previewModal = document.querySelector("#card-preview-modal");
 const previewModalClose = previewModal.querySelector(
   "#card-preview-modal-close"
 );
+// const openModal = document.querySelector(".modal__opened");
 
 //--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
 
@@ -143,6 +144,26 @@ function handleAddCardFormSubmit(e) {
 }
 
 //--------------------EVENT LISTENERS-------------------->>
+
+// Create Event Listener to listen for clicks on .modal__opened
+
+profileEditModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(profileEditModal);
+  }
+});
+
+addCardModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(addCardModal);
+  }
+});
+
+previewModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(previewModal);
+  }
+});
 
 profileEditBtn.addEventListener("click", () => {
   openModal(profileEditModal);
