@@ -96,7 +96,7 @@
   margin-top: 0;
 }
 
-.modal__input_type_error {
+.modal__input_type-error {
   margin-top: 5px;
   color: #f00;
   font-family: Inter, Arial, Helvetica, sans-serif;
