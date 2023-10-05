@@ -61,12 +61,21 @@ const cardUrlInput = cardAddForm.querySelector("#profile-add-url-input");
 
 //--------------------FUNCTIONS-------------------->>
 
+const isEscEvent = (event, action) => {
+  const activeModal = document.querySelector(".modal_opened");
+  if ((event.key = "Escape")) {
+    action(activeModal);
+  }
+};
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keyup", handleEscUp);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", handleEscUp);
 }
 
 function getCardElement(cardData) {
@@ -111,6 +120,11 @@ function fillProfileForm() {
   profileDescriptionInput.value = profileDescription.textContent;
 }
 //--------------------EVENT HANDLERS-------------------->>
+
+const handleEscUp = (event) => {
+  event.preventDefault();
+  isEscEvent(event, closeModal);
+};
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
