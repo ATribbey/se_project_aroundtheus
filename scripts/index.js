@@ -63,8 +63,8 @@ const cardUrlInput = cardAddForm.querySelector("#profile-add-url-input");
 //--------------------FUNCTIONS-------------------->>
 
 const isEscEvent = (event, action) => {
-  const activeModal = document.querySelector(".modal_opened");
   if (event.key === "Escape") {
+    const activeModal = document.querySelector(".modal_opened");
     action(activeModal);
   }
 };
