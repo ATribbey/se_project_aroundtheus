@@ -31,7 +31,7 @@ export default class Card {
     this._cardElement.remove();
   }
 
-  getCardElement() {
+  getNewCard() {
     this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
