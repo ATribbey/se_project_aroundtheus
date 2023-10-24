@@ -89,11 +89,11 @@ function getCardElement(cardData) {
   cardTitleEl.textContent = cardData.name;
   cardImageEl.alt = cardData.name;
 
-  // const deleteButton = cardElement.querySelector(".card__button-delete");
+  const deleteButton = cardElement.querySelector(".card__button-delete");
 
-  // deleteButton.addEventListener("click", () => {
-  //   cardElement.remove();
-  // });
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   const previewModalImage = previewModal.querySelector("#card-preview-image");
   const previewModalTitle = previewModal.querySelector(".modal__preview-title");
@@ -105,10 +105,10 @@ function getCardElement(cardData) {
     openModal(previewModal);
   });
 
-  // const likeButton = cardElement.querySelector(".card__button-like");
-  // likeButton.addEventListener("click", () => {
-  //   likeButton.classList.toggle("card__button-like_active");
-  // });
+  const likeButton = cardElement.querySelector(".card__button-like");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__button-like_active");
+  });
 
   return cardElement;
 }
