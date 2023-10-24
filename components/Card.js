@@ -39,6 +39,7 @@ export default class Card {
     this._cardImageElement = this._cardElement.querySelector(".card__image");
     this._cardTitleElement = this._cardElement.querySelector(".card__title");
 
+    this._cardImageElement.alt = this._name;
     this._cardImageElement.src = this._link;
     this._cardTitleElement.textContent = this._name;
 
