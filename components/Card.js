@@ -36,6 +36,11 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+    this._cardImageElement = this._cardElement.querySelector(".card__image");
+    this._cardTitleElement = this._cardElement.querySelector(".card__title");
+
+    this._cardImageElement.src = this._link;
+    this._cardTitleElement.textContent = this._name;
 
     this._setEventListeners();
 

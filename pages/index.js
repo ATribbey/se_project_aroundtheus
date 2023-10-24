@@ -115,7 +115,7 @@ function getCardElement(cardData) {
 
 function renderCard(data) {
   const cardElement = new Card(data, "#card-template", openModal);
-  cardList.prepend(cardElement.getCardElement());
+  cardList.prepend(cardElement.getNewCard());
 }
 
 function fillProfileForm() {
@@ -187,8 +187,7 @@ addCardModalClose.addEventListener("click", () => {
 });
 
 initialCards.forEach((cardData) => {
-  const cardElement = new Card(cardData, "#card-template", openModal);
-  cardList.append(cardElement);
+  renderCard(cardData);
 });
 
 cardAddForm.addEventListener("submit", handleAddCardFormSubmit);
