@@ -114,7 +114,7 @@ function getCardElement(cardData) {
 }
 
 function renderCard(data) {
-  const cardElement = new Card(data, "#card-template", openModal);
+  const cardElement = new Card(data, "#card-template", handleImageClick);
   cardList.prepend(cardElement.getNewCard());
 }
 
@@ -123,6 +123,17 @@ function fillProfileForm() {
   profileDescriptionInput.value = profileDescription.textContent;
 }
 //--------------------EVENT HANDLERS-------------------->>
+
+function handleImageClick() {
+  let previewModal = document.querySelector("#card-preview-modal");
+  let previewImage = previewModal.querySelector("#card-preview-image");
+  let previewTitle = previewModal.querySelector("#card-preview-title");
+
+  openModal(previewModal);
+  previewImage.src = this._link;
+  previewImage.alt = this._name;
+  previewTitle.textContent = this._name;
+}
 
 const handleEscUp = (event) => {
   event.preventDefault();
