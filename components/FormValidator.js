@@ -19,7 +19,7 @@ export default class FormValidator {
     errorMessage.textContent = input.validationMessage;
     // add error class to input
     // display error message
-    input.classList.add(options.errorClass);
+    input.classList.add(this._errorClass);
   }
 
   _hideInputError(input) {
@@ -27,7 +27,7 @@ export default class FormValidator {
     const errorMessage = this._formElement.querySelector(`#${input.id}-error`);
     // reset error messages
     errorMessage.textContent = input.validationMessage;
-    input.classList.remove(options.errorClass);
+    input.classList.remove(this._errorClass);
   }
 
   _checkValidity(input) {
@@ -55,11 +55,11 @@ export default class FormValidator {
 
     if (foundInvalid) {
       // disable button
-      submitButton.classList.add(options.inactiveButtonClassSelector);
+      submitButton.classList.add(this._inactiveButtonClass);
       submitButton.disabled = true;
     } else {
       // enable button
-      submitButton.classList.remove(options.inactiveButtonClass);
+      submitButton.classList.remove(this._inactiveButtonClass);
       submitButton.disabled = false;
     }
   }

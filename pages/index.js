@@ -221,8 +221,8 @@ previewModalClose.addEventListener("click", () => {
 
 //--------------------VALIDATION INSTANTIATORS-------------------->>
 
-const profileTitleValidation = new FormValidator(options, profileTitleInput);
+const profileEditValidation = new FormValidator(options, profileEditForm);
+const addCardValidation = new FormValidator(options, cardAddForm);
 
-profileTitleValidation.enableValidation(options);
-
-console.log(profileTitleInput);
+profileEditValidation.enableValidation(options);
+addCardValidation.enableValidation(options);
