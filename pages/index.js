@@ -93,38 +93,6 @@ function closeModal(modal) {
   document.removeEventListener("keyup", handleEscUp);
 }
 
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   cardImageEl.src = cardData.link;
-//   const cardTitleEl = cardElement.querySelector(".card__title");
-//   cardTitleEl.textContent = cardData.name;
-//   cardImageEl.alt = cardData.name;
-
-//   const deleteButton = cardElement.querySelector(".card__button-delete");
-
-//   deleteButton.addEventListener("click", () => {
-//     cardElement.remove();
-//   });
-
-//   const previewModalImage = previewModal.querySelector("#card-preview-image");
-//   const previewModalTitle = previewModal.querySelector(".modal__preview-title");
-
-//   cardImageEl.addEventListener("click", () => {
-//     previewModalImage.src = cardData.link;
-//     previewModalImage.alt = cardData.name;
-//     previewModalTitle.textContent = cardData.name;
-//     openModal(previewModal);
-//   });
-
-//   const likeButton = cardElement.querySelector(".card__button-like");
-//   likeButton.addEventListener("click", () => {
-//     likeButton.classList.toggle("card__button-like_active");
-//   });
-
-//   return cardElement;
-// }
-
 function renderCard(data) {
   const cardElement = new Card(data, "#card-template", handleImageClick);
   cardList.prepend(cardElement.getNewCard());
@@ -137,9 +105,9 @@ function fillProfileForm() {
 //--------------------EVENT HANDLERS-------------------->>
 
 function handleImageClick() {
-  let previewModal = document.querySelector("#card-preview-modal");
-  let previewImage = previewModal.querySelector("#card-preview-image");
-  let previewTitle = previewModal.querySelector("#card-preview-title");
+  const previewModal = document.querySelector("#card-preview-modal");
+  const previewImage = previewModal.querySelector("#card-preview-image");
+  const previewTitle = previewModal.querySelector("#card-preview-title");
 
   openModal(previewModal);
   previewImage.src = this._link;
@@ -209,9 +177,7 @@ addCardModalClose.addEventListener("click", () => {
   closeModal(addCardModal);
 });
 
-initialCards.forEach((cardData) => {
-  renderCard(cardData);
-});
+initialCards.forEach(renderCard);
 
 cardAddForm.addEventListener("submit", handleAddCardFormSubmit);
 
@@ -224,5 +190,5 @@ previewModalClose.addEventListener("click", () => {
 const profileEditValidation = new FormValidator(options, profileEditForm);
 const addCardValidation = new FormValidator(options, cardAddForm);
 
-profileEditValidation.enableValidation(options);
-addCardValidation.enableValidation(options);
+profileEditValidation.enableValidation();
+addCardValidation.enableValidation();

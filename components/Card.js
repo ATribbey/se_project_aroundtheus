@@ -18,11 +18,9 @@ export default class Card {
         this._deleteHandler();
       });
 
-    this._cardImageElement = this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handleImageClick(this);
-      });
+    this._cardImageElement.addEventListener("click", () => {
+      this._handleImageClick(this);
+    });
   }
 
   _likeHandler() {
