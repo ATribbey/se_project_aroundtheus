@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 
 const initialCards = [
   {
@@ -177,7 +178,7 @@ addCardModalClose.addEventListener("click", () => {
   closeModal(addCardModal);
 });
 
-initialCards.forEach(renderCard);
+// initialCards.forEach(renderCard);
 
 cardAddForm.addEventListener("submit", handleAddCardFormSubmit);
 
@@ -192,3 +193,9 @@ const addCardValidation = new FormValidator(options, cardAddForm);
 
 profileEditValidation.enableValidation();
 addCardValidation.enableValidation();
+
+//--------------------CARD INITIALIZATION-------------------->>
+
+const cardSection = new Section({ initialCards, renderCard }, cardList);
+
+cardSection.renderItems(initialCards);
