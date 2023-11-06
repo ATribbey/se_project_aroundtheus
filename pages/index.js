@@ -178,8 +178,6 @@ addCardModalClose.addEventListener("click", () => {
   closeModal(addCardModal);
 });
 
-// initialCards.forEach(renderCard);
-
 cardAddForm.addEventListener("submit", handleAddCardFormSubmit);
 
 previewModalClose.addEventListener("click", () => {
@@ -196,6 +194,9 @@ addCardValidation.enableValidation();
 
 //--------------------CARD INITIALIZATION-------------------->>
 
-const cardSection = new Section({ initialCards, renderCard }, cardList);
+const cardSection = new Section(
+  { items: initialCards, renderer: renderCard },
+  cardList
+);
 
 cardSection.renderItems(initialCards);

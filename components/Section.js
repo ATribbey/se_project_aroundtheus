@@ -1,7 +1,7 @@
 export default class Section {
-  constructor({ initialCards, renderer }, cardContainer) {
-    this._name = initialCards.name;
-    this._link = initialCards.link;
+  constructor({ items, renderer }, cardContainer) {
+    this._name = items.name;
+    this._link = items.link;
     this._renderer = renderer;
     this._cardContainer = cardContainer;
   }
@@ -10,8 +10,6 @@ export default class Section {
       this._renderer(item);
       return item;
     });
-
-    addItem(item);
   }
   addItem(item) {
     cardContainer.prepend(item);
