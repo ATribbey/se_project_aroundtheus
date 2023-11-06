@@ -96,7 +96,8 @@ function closeModal(modal) {
 
 function renderCard(data) {
   const cardElement = new Card(data, "#card-template", handleImageClick);
-  cardList.prepend(cardElement.getNewCard());
+  // cardList.prepend(cardElement.getNewCard());
+  return cardElement.getNewCard();
 }
 
 function fillProfileForm() {
@@ -196,7 +197,13 @@ addCardValidation.enableValidation();
 //--------------------CARD INITIALIZATION-------------------->>
 
 const cardSection = new Section(
-  { items: initialCards, renderer: renderCard },
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const newCard = renderCard(cardData);
+      cardSection.addItem(newCard);
+    },
+  },
   cardList
 );
 

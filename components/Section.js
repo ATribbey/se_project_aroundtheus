@@ -1,9 +1,9 @@
 export default class Section {
-  constructor({ items, renderer }, cardContainer) {
+  constructor({ items, renderer }, container) {
     this._name = items.name;
     this._link = items.link;
     this._renderer = renderer;
-    this._cardContainer = cardContainer;
+    this._container = container;
   }
   renderItems(items) {
     items.forEach((item) => {
@@ -12,6 +12,6 @@ export default class Section {
     });
   }
   addItem(item) {
-    this._cardContainer.prepend(item);
+    this._container.prepend(item);
   }
 }
