@@ -8,7 +8,6 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    this._pop;
     super.close();
   }
 }
