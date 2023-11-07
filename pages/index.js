@@ -96,7 +96,6 @@ function closeModal(modal) {
 
 function renderCard(data) {
   const cardElement = new Card(data, "#card-template", handleImageClick);
-  // cardList.prepend(cardElement.getNewCard());
   return cardElement.getNewCard();
 }
 
