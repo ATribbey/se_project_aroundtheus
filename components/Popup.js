@@ -4,22 +4,35 @@ export default class Popup {
   }
 
   open() {
-    this._popupSelector.add("modal_opened");
+    this._popupElement.add("modal_opened");
     document.addEventListener("keyup", this._handleEscClose);
   }
 
   close() {
-    this._popupSelector.remove("modal_opened");
+    this._popupElement.remove("modal_opened");
     document.removeEventListener("keyup", this._handleEscClose);
   }
 
   _handleEscClose(event) {
     if (event.key === "Escape") {
       event.preventDefault();
-      const activePopup = this._popupSelector.querySelector(".modal_opened");
+      const activePopup = this._popupElement.querySelector(".modal_opened");
       this.close(activePopup);
     }
   }
 
-  setEventListeners() {}
+  setEventListeners() {
+    //Add click event listener to close icon of popup
+
+    const closeButton = this._popupElement.querySelector(".modal__close");
+    closeButton.addEventListener("click", this.close);
+
+    //Add click event listener to close to area of page shaded gray to close popup
+
+    this._popupElement.addEventListener("click", (event) => {
+      if (event.target.classList.contains("modal_opened")) {
+        this.close(this._popupElement);
+      }
+    });
+  }
 }
