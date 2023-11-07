@@ -8,18 +8,17 @@ export default class Popup {
     document.addEventListener("keyup", this._handleEscClose);
   }
 
-  close() {
+  close = () => {
     this._popupElement.classList.remove("modal_opened");
     document.removeEventListener("keyup", this._handleEscClose);
-  }
+  };
 
-  _handleEscClose(event) {
+  _handleEscClose = (event) => {
     if (event.key === "Escape") {
       event.preventDefault();
-      const activePopup = this._popupElement.querySelector(".modal_opened");
-      this.close(activePopup);
+      this.close();
     }
-  }
+  };
 
   setEventListeners() {
     //Add click event listener to close icon of popup

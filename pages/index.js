@@ -143,11 +143,11 @@ function handleAddCardFormSubmit(e) {
 
 // Create Event Listener to listen for clicks on .modal__opened
 
-// profileEditModal.addEventListener("click", (event) => {
-//   if (event.target.classList.contains("modal_opened")) {
-//     closeModal(profileEditModal);
-//   }
-// });
+profileEditModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(profileEditModal);
+  }
+});
 
 addCardModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal_opened")) {
@@ -162,14 +162,13 @@ previewModal.addEventListener("click", (event) => {
 });
 
 profileEditBtn.addEventListener("click", () => {
-  // openModal(profileEditModal);
-  test.open();
+  openModal(profileEditModal);
   fillProfileForm();
 });
 
-// profileEditModalClose.addEventListener("click", () => {
-//   closeModal(profileEditModal);
-// });
+profileEditModalClose.addEventListener("click", () => {
+  closeModal(profileEditModal);
+});
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
@@ -209,9 +208,3 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems(initialCards);
-
-//--------------------POPUP TESTING-------------------->>
-
-const test = new Popup("#profile-edit-modal");
-
-test.setEventListeners();
