@@ -107,14 +107,14 @@ function fillProfileForm() {
 //--------------------EVENT HANDLERS-------------------->>
 
 function handleImageClick() {
-  const previewModal = document.querySelector("#card-preview-modal");
-  const previewImage = previewModal.querySelector("#card-preview-image");
-  const previewTitle = previewModal.querySelector("#card-preview-title");
+  // const previewModal = document.querySelector("#card-preview-modal");
+  // const previewImage = previewModal.querySelector("#card-preview-image");
+  // const previewTitle = previewModal.querySelector("#card-preview-title");
 
-  openModal(previewModal);
-  previewImage.src = this._link;
-  previewImage.alt = this._name;
-  previewTitle.textContent = this._name;
+  imagePopup.setEventListeners();
+  // previewImage.src = this._link;
+  // previewImage.alt = this._name;
+  // previewTitle.textContent = this._name;
 }
 
 const handleEscUp = (event) => {
@@ -208,3 +208,7 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems(initialCards);
+
+//--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
+
+const imagePopup = new PopupWithImage(previewModal);
