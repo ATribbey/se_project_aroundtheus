@@ -2,6 +2,7 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 
 const initialCards = [
   {
@@ -56,7 +57,6 @@ const previewModal = document.querySelector("#card-preview-modal");
 const previewModalClose = previewModal.querySelector(
   "#card-preview-modal-close"
 );
-// const openModal = document.querySelector(".modal__opened");
 
 //--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
 
@@ -140,13 +140,11 @@ function handleAddCardFormSubmit(e) {
 
 //--------------------EVENT LISTENERS-------------------->>
 
-// Create Event Listener to listen for clicks on .modal__opened
-
-profileEditModal.addEventListener("click", (event) => {
-  if (event.target.classList.contains("modal_opened")) {
-    closeModal(profileEditModal);
-  }
-});
+// profileEditModal.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("modal_opened")) {
+//     closeModal(profileEditModal);
+//   }
+// });
 
 addCardModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal_opened")) {
@@ -154,22 +152,16 @@ addCardModal.addEventListener("click", (event) => {
   }
 });
 
-previewModal.addEventListener("click", (event) => {
-  if (event.target.classList.contains("modal_opened")) {
-    closeModal(previewModal);
-  }
-});
-
-profileEditBtn.addEventListener("click", () => {
-  openModal(profileEditModal);
-  fillProfileForm();
-});
+// profileEditBtn.addEventListener("click", () => {
+//   openModal(profileEditModal);
+//   fillProfileForm();
+// });
 
 profileEditModalClose.addEventListener("click", () => {
   closeModal(profileEditModal);
 });
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+// profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 addCardBtn.addEventListener("click", () => {
   openModal(addCardModal);
@@ -180,10 +172,6 @@ addCardModalClose.addEventListener("click", () => {
 });
 
 cardAddForm.addEventListener("submit", handleAddCardFormSubmit);
-
-previewModalClose.addEventListener("click", () => {
-  closeModal(previewModal);
-});
 
 //--------------------VALIDATION INSTANTIATORS-------------------->>
 
