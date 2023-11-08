@@ -195,3 +195,7 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems(initialCards);
+
+//--------------------POPUP-WITH-FORM TESTING-------------------->>
+
+const test = new PopupWithForm("#profile-edit-modal", () => {});
