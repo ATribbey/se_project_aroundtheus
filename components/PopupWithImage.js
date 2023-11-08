@@ -1,8 +1,8 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithImage extends Popup {
-  constructor() {
-    super();
+  constructor(popupSelector) {
+    super({ popupSelector });
     this._previewImage = this._popupElement.querySelector(
       "#card-preview-image"
     );
@@ -11,10 +11,10 @@ export default class PopupWithImage extends Popup {
     );
   }
 
-  open = (data) => {
-    this._previewImage.src = data.src;
-    this._previewImage.alt = data.alt;
-    this._previewTitle.textContent = data.textContent;
+  open = ({ name, link }) => {
+    this._previewImage.src = link;
+    this._previewImage.alt = `${name}`;
+    this._previewTitle.textContent = `${name}`;
     super.open();
   };
 }

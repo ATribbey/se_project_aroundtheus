@@ -41,6 +41,12 @@ const options = {
   errorClass: "modal__error_visible",
 };
 
+//--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
+
+const imagePopup = new PopupWithImage("#card-preview-modal");
+
+imagePopup.setEventListeners();
+
 //--------------------GENERIC ELEMENTS-------------------->>
 
 const cardTemplate =
@@ -106,12 +112,12 @@ function fillProfileForm() {
 }
 //--------------------EVENT HANDLERS-------------------->>
 
-function handleImageClick() {
+function handleImageClick(data) {
+  imagePopup.open(data);
+
   // const previewModal = document.querySelector("#card-preview-modal");
   // const previewImage = previewModal.querySelector("#card-preview-image");
   // const previewTitle = previewModal.querySelector("#card-preview-title");
-
-  imagePopup.setEventListeners();
   // previewImage.src = this._link;
   // previewImage.alt = this._name;
   // previewTitle.textContent = this._name;
@@ -208,7 +214,3 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems(initialCards);
-
-//--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
-
-const imagePopup = new PopupWithImage(previewModal);
