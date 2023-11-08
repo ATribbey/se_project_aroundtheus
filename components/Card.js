@@ -19,7 +19,7 @@ export default class Card {
       });
 
     this._cardImageElement.addEventListener("click", () => {
-      this._clickHandler(this);
+      this._clickHandler({ name: this._name, link: this._link });
     });
   }
 
