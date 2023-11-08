@@ -114,13 +114,6 @@ function fillProfileForm() {
 
 function handleImageClick(data) {
   imagePopup.open(data);
-
-  // const previewModal = document.querySelector("#card-preview-modal");
-  // const previewImage = previewModal.querySelector("#card-preview-image");
-  // const previewTitle = previewModal.querySelector("#card-preview-title");
-  // previewImage.src = this._link;
-  // previewImage.alt = this._name;
-  // previewTitle.textContent = this._name;
 }
 
 const handleEscUp = (event) => {
