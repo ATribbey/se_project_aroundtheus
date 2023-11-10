@@ -3,6 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 
 const initialCards = [
   {
@@ -196,6 +197,6 @@ const cardSection = new Section(
 
 cardSection.renderItems(initialCards);
 
-//--------------------POPUP-WITH-FORM TESTING-------------------->>
+//--------------------USER-INFO INSTANTIATION-------------------->>
 
-const test = new PopupWithForm("#profile-edit-modal", () => {});
+//--------------------POPUP-WITH-FORM TESTING-------------------->>

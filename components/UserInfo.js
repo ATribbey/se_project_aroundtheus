@@ -3,6 +3,7 @@ export default new (class UserInfo {
     this._profileName = document.querySelector(profileName);
     this._profileJob = document.querySelector(profileJob);
   }
+
   getUserInfo() {
     const userInfo = {
       name: this._profileName.textContent,
@@ -10,6 +11,7 @@ export default new (class UserInfo {
     };
     return userInfo;
   }
+
   setUserInfo(data) {
     this._profileName.textContent = data.name;
     this._profileJob.textContent = data.job;
