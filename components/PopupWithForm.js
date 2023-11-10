@@ -12,9 +12,13 @@ export default class PopupWithForm extends Popup {
       this._popupForm.querySelectorAll(".modal__input")
     );
 
-    const inputValues = {};
-    // collect data from input fields in given form
-    return inputValues;
+    return inputList.reduce(
+      (acc, inputNode) => ({
+        ...acc,
+        [inputNode.name]: inputNode.value,
+      }),
+      {}
+    );
   }
 
   close() {
@@ -23,7 +27,7 @@ export default class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    this._popupForm.setEventListeners("submit", (event) => {
+    this._popupForm.addEventListener("submit", (event) => {
       event.preventDefault();
       this._handleFormSubmit(this._getInputValues());
     });

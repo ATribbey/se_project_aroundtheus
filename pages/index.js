@@ -67,8 +67,8 @@ const profileEditModalClose = document.querySelector(
   "#profile-edit-modal-close"
 );
 const profileEditForm = document.querySelector("#profile-edit-form");
-const profileTitle = document.querySelector("#profile-name");
-const profileDescription = document.querySelector("#profile-description");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
@@ -198,5 +198,24 @@ const cardSection = new Section(
 cardSection.renderItems(initialCards);
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
+const userInfo = new UserInfo({
+  profileName: ".profile__title",
+  profileJob: ".profile__description",
+});
 
 //--------------------POPUP-WITH-FORM TESTING-------------------->>
+const editModal = new PopupWithForm("#profile-edit-modal", (values) => {
+  userInfo.setUserInfo(values);
+  editModal.close();
+});
+
+editModal.setEventListeners();
+
+profileEditBtn.addEventListener("click", () => {
+  const { name, job } = userInfo.getUserInfo();
+
+  profileTitleInput.value = name;
+  profileDescriptionInput.value = job;
+
+  editModal.open();
+});

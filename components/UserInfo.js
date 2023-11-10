@@ -1,4 +1,4 @@
-export default new (class UserInfo {
+class UserInfo {
   constructor({ profileName, profileJob }) {
     this._profileName = document.querySelector(profileName);
     this._profileJob = document.querySelector(profileJob);
@@ -9,6 +9,7 @@ export default new (class UserInfo {
       name: this._profileName.textContent,
       job: this._profileJob.textContent,
     };
+
     return userInfo;
   }
 
@@ -16,4 +17,6 @@ export default new (class UserInfo {
     this._profileName.textContent = data.name;
     this._profileJob.textContent = data.job;
   }
-})();
+}
+
+export default UserInfo;
