@@ -17,6 +17,7 @@ import {
   cardUrlInput,
   options,
 } from "../utils/constants.js";
+import "./index.css";
 
 //--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
 
