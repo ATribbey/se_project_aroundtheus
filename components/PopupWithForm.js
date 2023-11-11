@@ -13,8 +13,8 @@ export default class PopupWithForm extends Popup {
     );
 
     return inputList.reduce(
-      (acc, inputNode) => ({
-        ...acc,
+      (accumulator, inputNode) => ({
+        ...accumulator,
         [inputNode.name]: inputNode.value,
       }),
       {}
