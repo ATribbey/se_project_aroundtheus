@@ -141,28 +141,15 @@ function handleAddCardFormSubmit(e) {
 
 //--------------------EVENT LISTENERS-------------------->>
 
-// profileEditModal.addEventListener("click", (event) => {
-//   if (event.target.classList.contains("modal_opened")) {
-//     closeModal(profileEditModal);
-//   }
-// });
-
 addCardModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal_opened")) {
     closeModal(addCardModal);
   }
 });
 
-// profileEditBtn.addEventListener("click", () => {
-//   openModal(profileEditModal);
-//   fillProfileForm();
-// });
-
 profileEditModalClose.addEventListener("click", () => {
   closeModal(profileEditModal);
 });
-
-// profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 addCardBtn.addEventListener("click", () => {
   openModal(addCardModal);
