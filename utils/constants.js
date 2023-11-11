@@ -65,7 +65,6 @@ export {
   profileTitleInput,
   profileDescriptionInput,
   addCardBtn,
-  addCardModal,
   cardAddForm,
   cardTitleInput,
   cardUrlInput,

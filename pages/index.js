@@ -12,7 +12,6 @@ import {
   profileTitleInput,
   profileDescriptionInput,
   addCardBtn,
-  addCardModal,
   cardAddForm,
   cardTitleInput,
   cardUrlInput,
