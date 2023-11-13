@@ -48,6 +48,7 @@ const userInfo = new UserInfo({
 });
 
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
+
 const editModal = new PopupWithForm("#profile-edit-modal", (values) => {
   userInfo.setUserInfo(values);
   editModal.close();
@@ -66,7 +67,7 @@ profileEditBtn.addEventListener("click", () => {
 
 //--------------------ADD CARD POPUP-WITH-FORM INSTANTIATION-------------------->>
 
-const addModal = new PopupWithForm("#profile-add-modal", () => {
+const addModal = new PopupWithForm("#profile-add-modal", (values) => {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   const newCard = renderCard({ name, link });
