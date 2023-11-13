@@ -8,10 +8,10 @@ export default class Popup {
     document.addEventListener("keyup", this._handleEscClose);
   }
 
-  close = () => {
+  close() {
     this._popupElement.classList.remove("modal_opened");
     document.removeEventListener("keyup", this._handleEscClose);
-  };
+  }
 
   _handleEscClose = (event) => {
     if (event.key === "Escape") {
@@ -24,7 +24,9 @@ export default class Popup {
     //Add click event listener to close icon of popup
 
     const closeButton = this._popupElement.querySelector(".modal__close");
-    closeButton.addEventListener("click", this.close);
+    closeButton.addEventListener("click", () => {
+      this.close();
+    });
 
     //Add click event listener to close to area of page shaded gray to close popup
 

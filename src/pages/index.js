@@ -65,24 +65,13 @@ profileEditBtn.addEventListener("click", () => {
   editModal.open();
 });
 
-//--------------------ADD CARD-INFO INSTANTIATION-------------------->>
-
-const addCardInfo = new UserInfo({
-  profileName: "#profile-add-title-input",
-  profileJob: "#profile-add-url-input",
-});
-
 //--------------------ADD CARD POPUP-WITH-FORM INSTANTIATION-------------------->>
 
 const addModal = new PopupWithForm("#profile-add-modal", () => {
-  // const name = cardTitleInput.value;
-  // const link = cardUrlInput.value;
-  const { name, link } = addCardInfo.getUserInfo();
-  const newCard = renderCard({ name, link });
+  const { title, url } = addModal.getInputValues();
+  const newCard = renderCard({ name: title, link: url });
   cardSection.addItem(newCard);
   addModal.close();
-  // cardTitleInput.value = "";
-  // cardUrlInput.value = "";
 });
 
 addModal.setEventListeners();
