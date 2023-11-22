@@ -1,5 +1,5 @@
 export default class Api {
-  constructor() {
+  constructor(options) {
     // constructor body
   }
 
@@ -19,6 +19,20 @@ export default class Api {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  addNewCard() {
+    fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+      method: "POST",
+      headers: {
+        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Yosemite Valley",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+      }),
+    });
   }
 
   getUserInfo() {

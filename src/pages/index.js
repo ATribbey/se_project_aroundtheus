@@ -100,6 +100,8 @@ addCardValidation.enableValidation();
 
 //--------------------API TESTING-------------------->>
 
-const test = new Api();
+const testOptions = {};
+
+const test = new Api(testOptions);
 
 test.getUserInfo();
