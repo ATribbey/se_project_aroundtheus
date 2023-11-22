@@ -39,7 +39,7 @@ const cardSection = new Section(
   cardList
 );
 
-cardSection.renderItems(initialCards);
+// cardSection.renderItems(initialCards);
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
 
@@ -102,4 +102,4 @@ addCardValidation.enableValidation();
 
 const test = new Api();
 
-test.getInitialCards();
+test.getUserInfo();

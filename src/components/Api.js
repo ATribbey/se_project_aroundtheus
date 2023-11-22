@@ -38,6 +38,20 @@ export default class Api {
         console.error(err);
       });
   }
+
+  setUserInfo() {
+    fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+      method: "PATCH",
+      headers: {
+        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Jacques Cousteau",
+        about: "Explorer",
+      }),
+    });
+  }
 }
 
 const api = new Api({
