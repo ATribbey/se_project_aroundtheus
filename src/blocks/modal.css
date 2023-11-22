@@ -67,11 +67,11 @@
   line-height: normal;
   padding-top: 34px;
   padding-left: 36px;
-  margin-bottom: 54px;
 }
 
 .modal__form {
   margin: auto;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   max-width: 358px;
