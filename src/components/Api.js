@@ -32,7 +32,34 @@ export default class Api {
         name: "Yosemite Valley",
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
       }),
-    });
+    })
+      .then((res) => {
+        if (res.okay) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  deleteCard(cardId) {
+    fetch(`https://around-api.en.tripleten-services.com/v1/cards/${cardId}`, {
+      method: "DELETE",
+      headers: {
+        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+      },
+    })
+      .then((res) => {
+        if (res.okay) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   getUserInfo() {
@@ -64,7 +91,16 @@ export default class Api {
         name: "Jacques Cousteau",
         about: "Explorer",
       }),
-    });
+    })
+      .then((res) => {
+        if (res.okay) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }
 

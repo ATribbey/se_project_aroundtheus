@@ -104,4 +104,4 @@ const testOptions = {};
 
 const test = new Api(testOptions);
 
-test.getUserInfo();
+test.getInitialCards();
