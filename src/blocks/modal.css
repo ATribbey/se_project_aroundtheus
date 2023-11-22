@@ -110,6 +110,10 @@
 }
 
 .modal__button {
+  max-width: 358px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #000;
   color: #fff;
   text-align: center;
