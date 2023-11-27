@@ -110,4 +110,4 @@ addCardValidation.enableValidation();
 
 //--------------------API TESTING-------------------->>
 
-api.getInitialCards();
+api.getUserInfo();

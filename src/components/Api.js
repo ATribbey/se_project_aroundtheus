@@ -144,12 +144,25 @@ export default class Api {
         console.error(err);
       });
   }
-}
 
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-    "Content-Type": "application/json",
-  },
-});
+  setProfilePicture(link) {
+    fetch("https://around-api.en.tripleten-services.com/v1/users/me/avatar", {
+      method: "PATCH",
+      headers: {
+        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+      },
+      body: JSON.stringify({
+        link: link,
+      }),
+    })
+      .then((res) => {
+        if (res.okay) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+}

@@ -11,6 +11,24 @@
   margin-right: 24px;
 }
 
+.profile__image-edit-button {
+  background: rgb(0, 0, 0) url(../images/prof-pic-edit-icon.svg) center
+    no-repeat;
+  border: none;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profile__image-edit-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .profile__info {
   display: grid;
   grid-template-areas: "title button" "description description";
