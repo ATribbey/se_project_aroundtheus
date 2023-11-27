@@ -8,6 +8,10 @@ import Api from "../components/Api.js";
 import {
   initialCards,
   cardList,
+  profilePicture,
+  profilePictureEditBtn,
+  profilePictureEditForm,
+  profilePictureFormInput,
   profileEditBtn,
   profileEditForm,
   profileTitleInput,
@@ -76,6 +80,19 @@ profileEditBtn.addEventListener("click", () => {
   editModal.open();
 });
 
+//--------------------PROFILE PICTURE POPUP-WITH-FORM INSTANTIATION-------------------->>
+
+const profilePictureModal = new PopupWithForm("#profpic-edit-modal", () => {
+  api.setProfilePicture(profilePictureFormInput.value);
+  profilePictureModal.close();
+});
+
+profilePictureModal.setEventListeners();
+
+profilePictureEditBtn.addEventListener("click", () => {
+  profilePictureModal.open();
+});
+
 //--------------------ADD CARD POPUP-WITH-FORM INSTANTIATION-------------------->>
 
 const addModal = new PopupWithForm("#profile-add-modal", () => {
@@ -104,9 +121,14 @@ function renderCard(data) {
 
 const profileEditValidation = new FormValidator(options, profileEditForm);
 const addCardValidation = new FormValidator(options, cardAddForm);
+const profilePictureValidation = new FormValidator(
+  options,
+  profilePictureEditForm
+);
 
 profileEditValidation.enableValidation();
 addCardValidation.enableValidation();
+profilePictureValidation.enableValidation();
 
 //--------------------API TESTING-------------------->>
 

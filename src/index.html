@@ -21,8 +21,12 @@
               src="<%=require('./images/jacques-cousteau.jpg')%>"
               alt="Avatar"
               class="profile__image"
+              id="profile-picture"
             />
-            <button class="profile__image-edit-button"></button>
+            <button
+              class="profile__image-edit-button"
+              id="profpic-edit-btn"
+            ></button>
           </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
@@ -97,15 +101,16 @@
           id="profpic-modal-close"
         ></button>
         <h3 class="modal__heading">Change profile picture</h3>
-        <form class="modal__form" id="profpic-input">
+        <form class="modal__form" id="profpic-form">
           <input
             class="modal__input"
-            id="profpic-url-input"
+            id="profpic-input"
             type="url"
             name="url"
             placeholder="Image URL"
             required
           />
+          <span class="modal__error" id="profile-picture-input-error"></span>
           <button class="modal__button">Save</button>
         </form>
       </div>

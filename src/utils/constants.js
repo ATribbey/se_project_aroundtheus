@@ -31,6 +31,10 @@ const cardList = document.querySelector(".cards__list");
 
 //--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
 
+const profilePicture = document.querySelector("#profile-picture");
+const profilePictureEditBtn = document.querySelector("#profpic-edit-btn");
+const profilePictureEditForm = document.querySelector("#profpic-form");
+const profilePictureFormInput = document.querySelector("#profpic-input");
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditForm = document.querySelector("#profile-edit-form");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -60,6 +64,10 @@ const options = {
 export {
   initialCards,
   cardList,
+  profilePicture,
+  profilePictureEditBtn,
+  profilePictureEditForm,
+  profilePictureFormInput,
   profileEditBtn,
   profileEditForm,
   profileTitleInput,
