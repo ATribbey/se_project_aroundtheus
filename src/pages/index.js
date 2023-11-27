@@ -82,10 +82,14 @@ profileEditBtn.addEventListener("click", () => {
 
 //--------------------PROFILE PICTURE POPUP-WITH-FORM INSTANTIATION-------------------->>
 
-const profilePictureModal = new PopupWithForm("#profile-picture-edit-modal", () => {
-  api.setProfilePicture(profilePictureFormInput.value);
-  profilePictureModal.close();
-});
+const profilePictureModal = new PopupWithForm(
+  "#profile-picture-edit-modal",
+  () => {
+    console.log(profilePictureFormInput.value);
+    api.setProfilePicture(profilePictureFormInput.value);
+    profilePictureModal.close();
+  }
+);
 
 profilePictureModal.setEventListeners();
 

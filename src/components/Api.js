@@ -8,6 +8,7 @@ export default class Api {
       method: "GET",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
       },
     })
       .then((res) => {
@@ -49,6 +50,7 @@ export default class Api {
       method: "DELETE",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
       },
     })
       .then((res) => {
@@ -69,6 +71,7 @@ export default class Api {
         method: "PUT",
         headers: {
           authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+          "Content-Type": "application/json",
         },
       }
     )
@@ -90,6 +93,7 @@ export default class Api {
         method: "DELETE",
         headers: {
           authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+          "Content-Type": "application/json",
         },
       }
     )
@@ -109,6 +113,7 @@ export default class Api {
       method: "GET",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
       },
     })
       .then((res) => {
@@ -150,6 +155,7 @@ export default class Api {
       method: "PATCH",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         link: link,
