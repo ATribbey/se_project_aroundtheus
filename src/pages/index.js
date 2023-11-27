@@ -100,8 +100,12 @@ addCardValidation.enableValidation();
 
 //--------------------API TESTING-------------------->>
 
-const testOptions = {};
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    "Content-Type": "application/json",
+  },
+});
 
-const testApi = new Api(testOptions);
-
-testApi.getInitialCards();
+api.getInitialCards();
