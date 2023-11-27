@@ -25,7 +25,7 @@
             />
             <button
               class="profile__image-edit-button"
-              id="profpic-edit-btn"
+              id="profile-picture-edit-btn"
             ></button>
           </div>
           <div class="profile__info">
@@ -93,25 +93,25 @@
     </div>
 
     <!--CHANGE PROFILE PICTURE MODAL-->
-    <div class="modal" id="profpic-edit-modal">
+    <div class="modal" id="profile-picture-edit-modal">
       <div class="modal__container">
         <button
           class="modal__close"
           type="button"
-          id="profpic-modal-close"
+          id="profile-picture-modal-close"
         ></button>
         <h3 class="modal__heading">Change profile picture</h3>
-        <form class="modal__form" id="profpic-form">
+        <form class="modal__form" id="profile-picture-form">
           <input
             class="modal__input"
-            id="profpic-input"
+            id="profile-picture-input"
             type="url"
             name="url"
             placeholder="Image URL"
             required
           />
-          <span class="modal__error" id="profpic-input-error"></span>
-          <button class="modal__button">Save</button>
+          <span class="modal__error" id="profile-picture-input-error"></span>
+          <button class="modal__button" type="submit" disabled>Save</button>
         </form>
       </div>
     </div>

@@ -32,9 +32,13 @@ const cardList = document.querySelector(".cards__list");
 //--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
 
 const profilePicture = document.querySelector("#profile-picture");
-const profilePictureEditBtn = document.querySelector("#profpic-edit-btn");
-const profilePictureEditForm = document.querySelector("#profpic-form");
-const profilePictureFormInput = document.querySelector("#profpic-input");
+const profilePictureEditBtn = document.querySelector(
+  "#profile-picture-edit-btn"
+);
+const profilePictureEditForm = document.querySelector("#profile-picture-form");
+const profilePictureFormInput = document.querySelector(
+  "#profile-picture-input"
+);
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditForm = document.querySelector("#profile-edit-form");
 const profileTitleInput = document.querySelector("#profile-title-input");
