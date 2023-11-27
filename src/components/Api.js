@@ -1,6 +1,6 @@
 export default class Api {
   constructor(options) {
-    // constructor body
+    this._options = options;
   }
 
   getInitialCards() {

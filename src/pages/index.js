@@ -102,6 +102,6 @@ addCardValidation.enableValidation();
 
 const testOptions = {};
 
-const test = new Api(testOptions);
+const testApi = new Api(testOptions);
 
-test.getInitialCards();
+testApi.getInitialCards();
