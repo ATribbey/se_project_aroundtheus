@@ -20,6 +20,16 @@ import {
 } from "../utils/constants.js";
 import "./index.css";
 
+//--------------------API INSTANTIATION-------------------->>
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    "Content-Type": "application/json",
+  },
+});
+
 //--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
 
 const imagePopup = new PopupWithImage("#card-preview-modal");
@@ -99,13 +109,5 @@ profileEditValidation.enableValidation();
 addCardValidation.enableValidation();
 
 //--------------------API TESTING-------------------->>
-
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-    "Content-Type": "application/json",
-  },
-});
 
 api.getInitialCards();
