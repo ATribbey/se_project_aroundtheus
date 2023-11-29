@@ -65,6 +65,16 @@ const options = {
   errorClass: "modal__error_visible",
 };
 
+//--------------------API OPTIONS-------------------->>
+
+const apiOptions = {
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+    "Content-Type": "application/json",
+  },
+};
+
 export {
   initialCards,
   cardList,
@@ -81,4 +91,5 @@ export {
   cardTitleInput,
   cardUrlInput,
   options,
+  apiOptions,
 };

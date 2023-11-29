@@ -21,18 +21,15 @@ import {
   cardTitleInput,
   cardUrlInput,
   options,
+  apiOptions,
 } from "../utils/constants.js";
 import "./index.css";
 
 //--------------------API INSTANTIATION-------------------->>
 
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-    "Content-Type": "application/json",
-  },
-});
+const api = new Api(apiOptions);
+
+console.log(api);
 
 //--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
 
@@ -64,7 +61,8 @@ const userInfo = new UserInfo(
 );
 
 api.getUserInfo().then((userData) => {
-  userInfo.setUserInfo(userData.name, userData.job);
+  console.log("Response object is", userData);
+  userInfo.setUserInfo(userData.name, userData.about);
   userInfo.setUserAvatar(userData.avatar);
 });
 

@@ -1,3 +1,4 @@
+import apiOptions from "../utils/constants.js";
 export default class Api {
   constructor(options) {
     this._options = options;
