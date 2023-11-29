@@ -57,9 +57,15 @@ const cardSection = new Section(
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
 
-const userInfo = new UserInfo({
-  profileName: ".profile__title",
-  profileJob: ".profile__description",
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  "#profile-picture"
+);
+
+api.getUserInfo().then((userData) => {
+  userInfo.setUserInfo(userData.name, userData.job);
+  userInfo.setUserAvatar(userData.avatar);
 });
 
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
@@ -85,8 +91,9 @@ profileEditBtn.addEventListener("click", () => {
 const profilePictureModal = new PopupWithForm(
   "#profile-picture-edit-modal",
   () => {
-    console.log(profilePictureFormInput.value);
-    api.setProfilePicture(profilePictureFormInput.value);
+    api.setProfilePicture(profilePictureFormInput.value).then((res) => {
+      profilePicture.src = res.avatar;
+    });
     profilePictureModal.close();
   }
 );
@@ -133,7 +140,3 @@ const profilePictureValidation = new FormValidator(
 profileEditValidation.enableValidation();
 addCardValidation.enableValidation();
 profilePictureValidation.enableValidation();
-
-//--------------------API TESTING-------------------->>
-
-api.getUserInfo();
