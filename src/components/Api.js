@@ -1,11 +1,14 @@
 import apiOptions from "../utils/constants.js";
 export default class Api {
-  constructor(options) {
-    this._options = options;
+  constructor() {
+    this._baseUrl = apiOptions.baseUrl;
+    this._headers = apiOptions.headers;
+    this._userPath = `${this._baseUrl}/users/me`;
+    this._cardPath = `${this._baseUrl}/cards`;
   }
 
   getInitialCards() {
-    fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    fetch(this._cardPath, {
       method: "GET",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
@@ -24,7 +27,7 @@ export default class Api {
   }
 
   addNewCard({ name, link }) {
-    fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    fetch(this._cardPath, {
       method: "POST",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
@@ -47,7 +50,7 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    fetch(`https://around-api.en.tripleten-services.com/v1/cards/${cardId}`, {
+    fetch(`${this._cardPath}${cardId}`, {
       method: "DELETE",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
@@ -66,16 +69,13 @@ export default class Api {
   }
 
   addCardLike(cardId) {
-    fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch(`${this._cardPath}${cardId}/likes`, {
+      method: "PUT",
+      headers: {
+        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -88,16 +88,13 @@ export default class Api {
   }
 
   removeCardLike(cardId) {
-    fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch(`${this._cardPath}${cardId}/likes`, {
+      method: "DELETE",
+      headers: {
+        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -110,7 +107,7 @@ export default class Api {
   }
 
   getUserInfo() {
-    fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+    fetch(this._userPath, {
       method: "GET",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
@@ -129,7 +126,7 @@ export default class Api {
   }
 
   setUserInfo() {
-    fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+    fetch(this._userPath, {
       method: "PATCH",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
@@ -152,7 +149,7 @@ export default class Api {
   }
 
   setProfilePicture(link) {
-    fetch("https://around-api.en.tripleten-services.com/v1/users/me/avatar", {
+    fetch(`${this._userPath}/avatar`, {
       method: "PATCH",
       headers: {
         authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
