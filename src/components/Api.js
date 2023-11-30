@@ -1,8 +1,8 @@
-import apiOptions from "../utils/constants.js";
+import { apiOptions } from "../utils/constants.js";
 export default class Api {
   constructor() {
     this._baseUrl = apiOptions.baseUrl;
-    this._headers = apiOptions.headers;
+    this._baseHeaders = apiOptions.headers;
     this._userPath = `${this._baseUrl}/users/me`;
     this._cardPath = `${this._baseUrl}/cards`;
   }
@@ -10,10 +10,7 @@ export default class Api {
   getInitialCards() {
     fetch(this._cardPath, {
       method: "GET",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
     })
       .then((res) => {
         if (res.okay) {
@@ -29,10 +26,7 @@ export default class Api {
   addNewCard({ name, link }) {
     fetch(this._cardPath, {
       method: "POST",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
       body: JSON.stringify({
         name: name,
         link: link,
@@ -52,10 +46,7 @@ export default class Api {
   deleteCard(cardId) {
     fetch(`${this._cardPath}${cardId}`, {
       method: "DELETE",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
     })
       .then((res) => {
         if (res.okay) {
@@ -71,10 +62,7 @@ export default class Api {
   addCardLike(cardId) {
     fetch(`${this._cardPath}${cardId}/likes`, {
       method: "PUT",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
     })
       .then((res) => {
         if (res.ok) {
@@ -90,10 +78,7 @@ export default class Api {
   removeCardLike(cardId) {
     fetch(`${this._cardPath}${cardId}/likes`, {
       method: "DELETE",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
     })
       .then((res) => {
         if (res.ok) {
@@ -109,10 +94,7 @@ export default class Api {
   getUserInfo() {
     fetch(this._userPath, {
       method: "GET",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
     })
       .then((res) => {
         if (res.ok) {
@@ -128,10 +110,7 @@ export default class Api {
   setUserInfo() {
     fetch(this._userPath, {
       method: "PATCH",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
       body: JSON.stringify({
         name: "Jacques Cousteau",
         about: "Explorer",
@@ -151,10 +130,7 @@ export default class Api {
   setProfilePicture(link) {
     fetch(`${this._userPath}/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: "97f6b443-08dd-4f1c-9189-025b318b185d",
-        "Content-Type": "application/json",
-      },
+      headers: this._baseHeaders,
       body: JSON.stringify({
         avatar: link,
       }),
