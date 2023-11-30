@@ -29,8 +29,6 @@ import "./index.css";
 
 const api = new Api(apiOptions);
 
-console.log(api);
-
 //--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
 
 const imagePopup = new PopupWithImage("#card-preview-modal");
@@ -116,6 +114,8 @@ addModal.setEventListeners();
 addCardBtn.addEventListener("click", () => {
   addModal.open();
 });
+
+//--------------------DELETE CARD POPUP-WITH-FORM INSTANTIATION-------------------->>
 
 //--------------------FUNCTIONS-------------------->>
 
