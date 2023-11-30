@@ -7,19 +7,27 @@ export default class Api {
     this._cardPath = `${this._baseUrl}/cards`;
   }
 
+  _checkResponse(res) {
+    if (res.okay) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  }
+
+  _logError(err) {
+    console.error(err);
+  }
+
   getInitialCards() {
     fetch(this._cardPath, {
       method: "GET",
       headers: this._baseHeaders,
     })
       .then((res) => {
-        if (res.okay) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -33,13 +41,10 @@ export default class Api {
       }),
     })
       .then((res) => {
-        if (res.okay) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -49,13 +54,10 @@ export default class Api {
       headers: this._baseHeaders,
     })
       .then((res) => {
-        if (res.okay) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -65,13 +67,10 @@ export default class Api {
       headers: this._baseHeaders,
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -81,13 +80,10 @@ export default class Api {
       headers: this._baseHeaders,
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -97,13 +93,10 @@ export default class Api {
       headers: this._baseHeaders,
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -117,13 +110,10 @@ export default class Api {
       }),
     })
       .then((res) => {
-        if (res.okay) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 
@@ -136,13 +126,10 @@ export default class Api {
       }),
     })
       .then((res) => {
-        if (res.okay) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        this._checkResponse(res);
       })
       .catch((err) => {
-        console.error(err);
+        this._logError(err);
       });
   }
 }
