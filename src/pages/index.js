@@ -59,7 +59,6 @@ const userInfo = new UserInfo(
 );
 
 api.getUserInfo().then((userData) => {
-  console.log("Response object is", userData);
   userInfo.setUserInfo(userData.name, userData.about);
   userInfo.setUserAvatar(userData.avatar);
 });

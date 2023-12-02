@@ -8,7 +8,7 @@ export default class Api {
   }
 
   _checkResponse(res) {
-    if (res.okay) {
+    if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Error: ${res.status}`);
@@ -19,12 +19,12 @@ export default class Api {
   }
 
   getInitialCards() {
-    fetch(this._cardPath, {
+    return fetch(this._cardPath, {
       method: "GET",
       headers: this._baseHeaders,
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -32,7 +32,7 @@ export default class Api {
   }
 
   addNewCard({ name, link }) {
-    fetch(this._cardPath, {
+    return fetch(this._cardPath, {
       method: "POST",
       headers: this._baseHeaders,
       body: JSON.stringify({
@@ -41,7 +41,7 @@ export default class Api {
       }),
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -49,12 +49,12 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    fetch(`${this._cardPath}${cardId}`, {
+    return fetch(`${this._cardPath}${cardId}`, {
       method: "DELETE",
       headers: this._baseHeaders,
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -62,12 +62,12 @@ export default class Api {
   }
 
   addCardLike(cardId) {
-    fetch(`${this._cardPath}${cardId}/likes`, {
+    return fetch(`${this._cardPath}${cardId}/likes`, {
       method: "PUT",
       headers: this._baseHeaders,
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -75,12 +75,12 @@ export default class Api {
   }
 
   removeCardLike(cardId) {
-    fetch(`${this._cardPath}${cardId}/likes`, {
+    return fetch(`${this._cardPath}${cardId}/likes`, {
       method: "DELETE",
       headers: this._baseHeaders,
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -88,12 +88,12 @@ export default class Api {
   }
 
   getUserInfo() {
-    fetch(this._userPath, {
+    return fetch(this._userPath, {
       method: "GET",
       headers: this._baseHeaders,
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -101,7 +101,7 @@ export default class Api {
   }
 
   setUserInfo() {
-    fetch(this._userPath, {
+    return fetch(this._userPath, {
       method: "PATCH",
       headers: this._baseHeaders,
       body: JSON.stringify({
@@ -110,7 +110,7 @@ export default class Api {
       }),
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
@@ -118,7 +118,7 @@ export default class Api {
   }
 
   setProfilePicture(link) {
-    fetch(`${this._userPath}/avatar`, {
+    return fetch(`${this._userPath}/avatar`, {
       method: "PATCH",
       headers: this._baseHeaders,
       body: JSON.stringify({
@@ -126,7 +126,7 @@ export default class Api {
       }),
     })
       .then((res) => {
-        this._checkResponse(res);
+        return this._checkResponse(res);
       })
       .catch((err) => {
         this._logError(err);
