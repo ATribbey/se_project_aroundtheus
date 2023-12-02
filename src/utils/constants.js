@@ -31,7 +31,9 @@ const cardList = document.querySelector(".cards__list");
 
 //--------------------PROFILE EDIT MODAL ELEMENTS-------------------->>
 
-const profilePicture = document.querySelector("#profile-picture");
+const profileName = document.querySelector("#profile-name");
+const profileAbout = document.querySelector("#profile-about");
+const profileAvatar = document.querySelector("#profile-avatar");
 const profilePictureEditBtn = document.querySelector(
   "#profile-picture-edit-btn"
 );
@@ -78,7 +80,9 @@ const apiOptions = {
 export {
   initialCards,
   cardList,
-  profilePicture,
+  profileName,
+  profileAbout,
+  profileAvatar,
   profilePictureEditBtn,
   profilePictureEditForm,
   profilePictureFormInput,

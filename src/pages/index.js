@@ -8,7 +8,9 @@ import Api from "../components/Api.js";
 import {
   initialCards,
   cardList,
-  profilePicture,
+  profileName,
+  profileAbout,
+  profileAvatar,
   profilePictureEditBtn,
   profilePictureEditForm,
   profilePictureFormInput,
@@ -53,9 +55,9 @@ const cardSection = new Section(
 //--------------------USER-INFO INSTANTIATION-------------------->>
 
 const userInfo = new UserInfo(
-  ".profile__title",
-  ".profile__description",
-  "#profile-picture"
+  "#profile-name",
+  "#profile-about",
+  "#profile-avatar"
 );
 
 api.getUserInfo().then((userData) => {
@@ -66,7 +68,9 @@ api.getUserInfo().then((userData) => {
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
 
 const editModal = new PopupWithForm("#profile-edit-modal", (values) => {
-  userInfo.setUserInfo(values);
+  api.setUserInfo().then((data) => {
+    userInfo.setUserInfo(data);
+  });
   editModal.close();
 });
 

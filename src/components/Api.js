@@ -100,13 +100,13 @@ export default class Api {
       });
   }
 
-  setUserInfo() {
+  setUserInfo(data) {
     return fetch(this._userPath, {
       method: "PATCH",
       headers: this._baseHeaders,
       body: JSON.stringify({
-        name: "Jacques Cousteau",
-        about: "Explorer",
+        name: data.name,
+        about: data.about,
       }),
     })
       .then((res) => {
