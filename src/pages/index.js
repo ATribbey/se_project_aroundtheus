@@ -37,7 +37,7 @@ const imagePopup = new PopupWithImage("#card-preview-modal");
 
 imagePopup.setEventListeners();
 
-//--------------------CARD INITIALIZATION-------------------->>
+//--------------------CARDSECTION INSTANTIATION-------------------->>
 
 const cardSection = new Section(
   {
@@ -49,6 +49,10 @@ const cardSection = new Section(
   },
   cardList
 );
+
+api.getInitialCards().then((cardData) => {
+  cardSection.renderItems(cardData);
+});
 
 // cardSection.renderItems(initialCards);
 
