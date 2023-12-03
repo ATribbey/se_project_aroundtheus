@@ -26,6 +26,7 @@ import {
   apiOptions,
 } from "../utils/constants.js";
 import "./index.css";
+import Popup from "../components/Popup.js";
 
 //--------------------API INSTANTIATION-------------------->>
 
@@ -113,6 +114,7 @@ const addModal = new PopupWithForm("#profile-add-modal", () => {
   const { title, url } = addModal.getInputValues();
   const newCard = renderCard({ name: title, link: url });
   cardSection.addItem(newCard);
+  api.addNewCard({ name: title, link: url });
   addModal.close();
 });
 
@@ -122,7 +124,9 @@ addCardBtn.addEventListener("click", () => {
   addModal.open();
 });
 
-//--------------------DELETE CARD POPUP-WITH-FORM INSTANTIATION-------------------->>
+//--------------------DELETE CARD POPUP INSTANTIATION-------------------->>
+
+const deleteModal = new Popup("#card-delete-modal");
 
 //--------------------FUNCTIONS-------------------->>
 

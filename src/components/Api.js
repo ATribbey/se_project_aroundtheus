@@ -18,7 +18,7 @@ export default class Api {
     console.error(err);
   }
 
-  returnPromiseAll([promise1, promise2]) {
+  returnPromises([promise1, promise2]) {
     return Promise.all([promise1, promise2]);
   }
 
