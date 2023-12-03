@@ -68,8 +68,8 @@ api.getUserInfo().then((userData) => {
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
 
 const editModal = new PopupWithForm("#profile-edit-modal", (values) => {
-  api.setUserInfo().then((data) => {
-    userInfo.setUserInfo(data);
+  api.setUserInfo({ name: values.name, about: values.job }).then((data) => {
+    userInfo.setUserInfo(data.name, data.about);
   });
   editModal.close();
 });

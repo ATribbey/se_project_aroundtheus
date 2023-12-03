@@ -100,13 +100,13 @@ export default class Api {
       });
   }
 
-  setUserInfo(data) {
+  setUserInfo({ name, about }) {
     return fetch(this._userPath, {
       method: "PATCH",
       headers: this._baseHeaders,
       body: JSON.stringify({
-        name: data.name,
-        about: data.about,
+        name: name,
+        about: about,
       }),
     })
       .then((res) => {
