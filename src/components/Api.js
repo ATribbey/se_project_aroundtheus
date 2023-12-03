@@ -18,6 +18,10 @@ export default class Api {
     console.error(err);
   }
 
+  returnPromiseAll([promise1, promise2]) {
+    return Promise.all([promise1, promise2]);
+  }
+
   getInitialCards() {
     return fetch(this._cardPath, {
       method: "GET",
