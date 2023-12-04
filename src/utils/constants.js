@@ -51,6 +51,8 @@ const profileDescriptionInput = document.querySelector(
 //--------------------PROFILE ADD MODAL ELEMENTS-------------------->>
 
 const addCardBtn = document.querySelector("#profile-add-btn");
+const deleteCardBtn = document.querySelectorAll("#card-delete-btn");
+const likeCardBtn = document.querySelectorAll("#card-like-btn");
 const addCardModal = document.querySelector("#profile-add-modal");
 const cardAddForm = addCardModal.querySelector("#card-add-form");
 const cardTitleInput = cardAddForm.querySelector("#profile-add-title-input");
@@ -91,6 +93,8 @@ export {
   profileTitleInput,
   profileDescriptionInput,
   addCardBtn,
+  deleteCardBtn,
+  likeCardBtn,
   cardAddForm,
   cardTitleInput,
   cardUrlInput,

@@ -19,6 +19,8 @@ import {
   profileTitleInput,
   profileDescriptionInput,
   addCardBtn,
+  deleteCardBtn,
+  likeCardBtn,
   cardAddForm,
   cardTitleInput,
   cardUrlInput,
@@ -26,7 +28,7 @@ import {
   apiOptions,
 } from "../utils/constants.js";
 import "./index.css";
-import Popup from "../components/Popup.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 //--------------------API INSTANTIATION-------------------->>
 
@@ -53,9 +55,9 @@ const cardSection = new Section(
 
 api.getInitialCards().then((cardData) => {
   cardSection.renderItems(cardData);
+  console.log(deleteCardBtn);
+  console.log(likeCardBtn);
 });
-
-// cardSection.renderItems(initialCards);
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
 
@@ -126,7 +128,7 @@ addCardBtn.addEventListener("click", () => {
 
 //--------------------DELETE CARD POPUP INSTANTIATION-------------------->>
 
-const deleteModal = new Popup("#card-delete-modal");
+const deleteModal = new PopupWithConfirmation("#card-delete-modal");
 
 //--------------------FUNCTIONS-------------------->>
 
