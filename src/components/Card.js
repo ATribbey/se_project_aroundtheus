@@ -29,7 +29,6 @@ export default class Card {
       .querySelector(".card__button-delete")
       .addEventListener("click", () => {
         this._deletePopup.open();
-        // this._deleteHandler();
       });
 
     this._cardImageElement.addEventListener("click", () => {
@@ -45,6 +44,7 @@ export default class Card {
 
   _deleteHandler() {
     this._cardElement.remove();
+    this._cardElement = null;
   }
 
   getNewCard() {
