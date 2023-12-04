@@ -1,10 +1,21 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, clickHandler, deletePopup) {
+  constructor(
+    { name, link, _id, isLiked },
+    cardSelector,
+    clickHandler,
+    deletePopup
+  ) {
     this._name = name;
     this._link = link;
+    this._id = _id;
+    this._isLiked = isLiked;
     this._cardSelector = cardSelector;
     this._clickHandler = clickHandler;
     this._deletePopup = deletePopup;
+  }
+
+  getId() {
+    return this._id;
   }
 
   _setEventListeners() {
