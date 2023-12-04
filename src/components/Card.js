@@ -1,10 +1,12 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, clickHandler) {
+  constructor({ name, link }, cardSelector, clickHandler, deletePopup) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
     this._clickHandler = clickHandler;
+    this._deletePopup = deletePopup;
   }
+
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__button-like")
@@ -15,6 +17,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__button-delete")
       .addEventListener("click", () => {
+        this._deletePopup.open();
         // this._deleteHandler();
       });
 

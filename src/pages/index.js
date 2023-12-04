@@ -19,8 +19,6 @@ import {
   profileTitleInput,
   profileDescriptionInput,
   addCardBtn,
-  deleteCardBtn,
-  likeCardBtn,
   cardAddForm,
   cardTitleInput,
   cardUrlInput,
@@ -55,8 +53,6 @@ const cardSection = new Section(
 
 api.getInitialCards().then((cardData) => {
   cardSection.renderItems(cardData);
-  console.log(deleteCardBtn);
-  console.log(likeCardBtn);
 });
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
@@ -128,14 +124,23 @@ addCardBtn.addEventListener("click", () => {
 
 //--------------------DELETE CARD POPUP INSTANTIATION-------------------->>
 
-const deleteModal = new PopupWithConfirmation("#card-delete-modal");
+const deleteModal = new PopupWithConfirmation("#card-delete-modal", () => {
+  deleteModal.close();
+});
+
+deleteModal.setEventListeners();
 
 //--------------------FUNCTIONS-------------------->>
 
 function renderCard(data) {
-  const cardElement = new Card(data, "#card-template", () => {
-    imagePopup.open(data);
-  });
+  const cardElement = new Card(
+    data,
+    "#card-template",
+    () => {
+      imagePopup.open(data);
+    },
+    deleteModal
+  );
   return cardElement.getNewCard();
 }
 
