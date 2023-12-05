@@ -139,7 +139,11 @@ function renderCard(data) {
     () => {
       imagePopup.open(data);
     },
-    deleteModal
+    deleteModal,
+    () => {
+      const id = cardElement.getId();
+      api.deleteCard(id);
+    }
   );
   return cardElement.getNewCard();
 }

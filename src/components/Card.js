@@ -3,7 +3,8 @@ export default class Card {
     { name, link, _id, isLiked },
     cardSelector,
     clickHandler,
-    deletePopup
+    deletePopup,
+    handleDelete
   ) {
     this._name = name;
     this._link = link;
@@ -12,6 +13,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._clickHandler = clickHandler;
     this._deletePopup = deletePopup;
+    this._handleDelete = handleDelete;
   }
 
   getId() {
@@ -42,7 +44,8 @@ export default class Card {
       .classList.toggle("card__button-like_active");
   }
 
-  _deleteHandler() {
+  deleteHandler() {
+    this._handleDelete();
     this._cardElement.remove();
     this._cardElement = null;
   }
