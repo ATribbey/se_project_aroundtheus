@@ -45,7 +45,6 @@ export default class Card {
   }
 
   deleteHandler() {
-    this._handleDelete();
     this._cardElement.remove();
     this._cardElement = null;
   }

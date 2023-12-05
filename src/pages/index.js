@@ -143,6 +143,7 @@ function renderCard(data) {
     () => {
       const id = cardElement.getId();
       api.deleteCard(id);
+      cardElement.deleteHandler();
     }
   );
   return cardElement.getNewCard();
