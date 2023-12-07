@@ -185,6 +185,29 @@ function renderCard(data) {
             api.logError(err);
           });
       });
+    },
+    () => {
+      const id = cardElement.getId();
+
+      if (!data.isLiked) {
+        api
+          .addCardLike(id)
+          .then(() => {
+            cardElement.likeHandler();
+          })
+          .catch((err) => {
+            api.logError(err);
+          });
+      } else {
+        api
+          .removeCardLike(id)
+          .then(() => {
+            cardElement.likeHandler();
+          })
+          .catch((err) => {
+            api.logError(err);
+          });
+      }
     }
   );
   return cardElement.getNewCard();
