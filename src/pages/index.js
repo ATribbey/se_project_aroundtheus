@@ -175,11 +175,13 @@ function renderCard(data) {
       deleteModal.open();
 
       deleteModal.setSubmitAction(() => {
+        deleteModal.loadingButtonState();
         api
           .deleteCard(id)
           .then(() => {
             cardElement.deleteHandler();
             deleteModal.close();
+            deleteModal.defaultButtonState();
           })
           .catch((err) => {
             api.logError(err);

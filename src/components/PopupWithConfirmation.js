@@ -17,4 +17,14 @@ export default class PopupWithConfirmation extends Popup {
     });
     super.setEventListeners();
   }
+
+  loadingButtonState() {
+    this._confirmBtn = this._popupElement.querySelector("#delete-card-btn");
+
+    this._confirmBtn.textContent = "Deleting...";
+  }
+
+  defaultButtonState() {
+    this._confirmBtn.textContent = "Yes";
+  }
 }
