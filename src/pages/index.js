@@ -42,7 +42,6 @@ imagePopup.setEventListeners();
 
 const cardSection = new Section(
   {
-    items: initialCards,
     renderer: (cardData) => {
       const newCard = renderCard(cardData);
       cardSection.addItem(newCard);
@@ -88,12 +87,14 @@ const editModal = new PopupWithForm(
       .setUserInfo({ name: values.name, about: values.job })
       .then((data) => {
         userInfo.setUserInfo(data.name, data.about);
-        editModal.resetButtonState();
+        editModal.close();
       })
       .catch((err) => {
         api.logError(err);
+      })
+      .finally(() => {
+        editModal.resetButtonState();
       });
-    editModal.close();
   },
   "Save"
 );
@@ -119,12 +120,14 @@ const profilePictureModal = new PopupWithForm(
       .setProfilePicture(profilePictureFormInput.value)
       .then((res) => {
         profileAvatar.src = res.avatar;
-        profilePictureModal.resetButtonState();
+        profilePictureModal.close();
       })
       .catch((err) => {
         api.logError(err);
+      })
+      .finally(() => {
+        profilePictureModal.resetButtonState();
       });
-    profilePictureModal.close();
   },
   "Save"
 );
@@ -152,12 +155,14 @@ const addModal = new PopupWithForm(
           isLiked: cardData.isLiked,
         });
         cardSection.addItem(newCard);
-        addModal.resetButtonState();
+        addModal.close();
       })
       .catch((err) => {
         api.logError(err);
+      })
+      .finally(() => {
+        addModal.resetButtonState();
       });
-    addModal.close();
   },
   "Create"
 );
