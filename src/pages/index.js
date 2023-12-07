@@ -124,9 +124,7 @@ addCardBtn.addEventListener("click", () => {
 
 //--------------------DELETE CARD POPUP INSTANTIATION-------------------->>
 
-const deleteModal = new PopupWithConfirmation("#card-delete-modal", () => {
-  deleteModal.close();
-});
+const deleteModal = new PopupWithConfirmation("#card-delete-modal");
 
 deleteModal.setEventListeners();
 
@@ -142,8 +140,20 @@ function renderCard(data) {
     deleteModal,
     () => {
       const id = cardElement.getId();
-      api.deleteCard(id);
-      cardElement.deleteHandler();
+
+      deleteModal.open();
+
+      deleteModal.setSubmitAction(() => {
+        api
+          .deleteCard(id)
+          .then(() => {
+            cardElement.deleteHandler();
+            deleteModal.close();
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      });
     }
   );
   return cardElement.getNewCard();

@@ -53,7 +53,7 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._cardPath}${cardId}`, {
+    return fetch(`${this._cardPath}/${cardId}`, {
       method: "DELETE",
       headers: this._baseHeaders,
     })
@@ -66,7 +66,7 @@ export default class Api {
   }
 
   addCardLike(cardId) {
-    return fetch(`${this._cardPath}${cardId}/likes`, {
+    return fetch(`${this._cardPath}/${cardId}/likes`, {
       method: "PUT",
       headers: this._baseHeaders,
     })
@@ -79,7 +79,7 @@ export default class Api {
   }
 
   removeCardLike(cardId) {
-    return fetch(`${this._cardPath}${cardId}/likes`, {
+    return fetch(`${this._cardPath}/${cardId}/likes`, {
       method: "DELETE",
       headers: this._baseHeaders,
     })
