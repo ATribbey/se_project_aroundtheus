@@ -51,9 +51,14 @@ const cardSection = new Section(
   cardList
 );
 
-api.getInitialCards().then((cardData) => {
-  cardSection.renderItems(cardData);
-});
+api
+  .getInitialCards()
+  .then((cardData) => {
+    cardSection.renderItems(cardData);
+  })
+  .catch((err) => {
+    api.logError(err);
+  });
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
 
@@ -63,17 +68,27 @@ const userInfo = new UserInfo(
   "#profile-avatar"
 );
 
-api.getUserInfo().then((userData) => {
-  userInfo.setUserInfo(userData.name, userData.about);
-  userInfo.setUserAvatar(userData.avatar);
-});
+api
+  .getUserInfo()
+  .then((userData) => {
+    userInfo.setUserInfo(userData.name, userData.about);
+    userInfo.setUserAvatar(userData.avatar);
+  })
+  .catch((err) => {
+    api.logError(err);
+  });
 
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
 
 const editModal = new PopupWithForm("#profile-edit-modal", (values) => {
-  api.setUserInfo({ name: values.name, about: values.job }).then((data) => {
-    userInfo.setUserInfo(data.name, data.about);
-  });
+  api
+    .setUserInfo({ name: values.name, about: values.job })
+    .then((data) => {
+      userInfo.setUserInfo(data.name, data.about);
+    })
+    .catch((err) => {
+      api.logError(err);
+    });
   editModal.close();
 });
 
@@ -93,9 +108,14 @@ profileEditBtn.addEventListener("click", () => {
 const profilePictureModal = new PopupWithForm(
   "#profile-picture-edit-modal",
   () => {
-    api.setProfilePicture(profilePictureFormInput.value).then((res) => {
-      profilePicture.src = res.avatar;
-    });
+    api
+      .setProfilePicture(profilePictureFormInput.value)
+      .then((res) => {
+        profilePicture.src = res.avatar;
+      })
+      .catch((err) => {
+        api.logError(err);
+      });
     profilePictureModal.close();
   }
 );
@@ -110,9 +130,20 @@ profilePictureEditBtn.addEventListener("click", () => {
 
 const addModal = new PopupWithForm("#profile-add-modal", () => {
   const { title, url } = addModal.getInputValues();
-  const newCard = renderCard({ name: title, link: url });
-  cardSection.addItem(newCard);
-  api.addNewCard({ name: title, link: url });
+  api
+    .addNewCard({ name: title, link: url })
+    .then((cardData) => {
+      const newCard = renderCard({
+        name: cardData.name,
+        link: cardData.link,
+        _id: cardData._id,
+        isLiked: cardData.isLiked,
+      });
+      cardSection.addItem(newCard);
+    })
+    .catch((err) => {
+      api.logError(err);
+    });
   addModal.close();
 });
 
@@ -151,7 +182,7 @@ function renderCard(data) {
             deleteModal.close();
           })
           .catch((err) => {
-            console.error(err);
+            api.logError(err);
           });
       });
     }

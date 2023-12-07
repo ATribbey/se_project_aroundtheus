@@ -14,7 +14,7 @@ export default class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  _logError(err) {
+  logError(err) {
     console.error(err);
   }
 
@@ -26,13 +26,9 @@ export default class Api {
     return fetch(this._cardPath, {
       method: "GET",
       headers: this._baseHeaders,
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   addNewCard({ name, link }) {
@@ -43,65 +39,45 @@ export default class Api {
         name: name,
         link: link,
       }),
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   deleteCard(cardId) {
     return fetch(`${this._cardPath}/${cardId}`, {
       method: "DELETE",
       headers: this._baseHeaders,
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   addCardLike(cardId) {
     return fetch(`${this._cardPath}/${cardId}/likes`, {
       method: "PUT",
       headers: this._baseHeaders,
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   removeCardLike(cardId) {
     return fetch(`${this._cardPath}/${cardId}/likes`, {
       method: "DELETE",
       headers: this._baseHeaders,
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   getUserInfo() {
     return fetch(this._userPath, {
       method: "GET",
       headers: this._baseHeaders,
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   setUserInfo({ name, about }) {
@@ -112,13 +88,9 @@ export default class Api {
         name: name,
         about: about,
       }),
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   setProfilePicture(link) {
@@ -128,12 +100,8 @@ export default class Api {
       body: JSON.stringify({
         avatar: link,
       }),
-    })
-      .then((res) => {
-        return this._checkResponse(res);
-      })
-      .catch((err) => {
-        this._logError(err);
-      });
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 }
