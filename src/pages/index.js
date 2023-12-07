@@ -80,17 +80,23 @@ api
 
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
 
-const editModal = new PopupWithForm("#profile-edit-modal", (values) => {
-  api
-    .setUserInfo({ name: values.name, about: values.job })
-    .then((data) => {
-      userInfo.setUserInfo(data.name, data.about);
-    })
-    .catch((err) => {
-      api.logError(err);
-    });
-  editModal.close();
-});
+const editModal = new PopupWithForm(
+  "#profile-edit-modal",
+  (values) => {
+    editModal.loadingButtonState();
+    api
+      .setUserInfo({ name: values.name, about: values.job })
+      .then((data) => {
+        userInfo.setUserInfo(data.name, data.about);
+        editModal.resetButtonState();
+      })
+      .catch((err) => {
+        api.logError(err);
+      });
+    editModal.close();
+  },
+  "Save"
+);
 
 editModal.setEventListeners();
 
@@ -108,16 +114,19 @@ profileEditBtn.addEventListener("click", () => {
 const profilePictureModal = new PopupWithForm(
   "#profile-picture-edit-modal",
   () => {
+    profilePictureModal.loadingButtonState();
     api
       .setProfilePicture(profilePictureFormInput.value)
       .then((res) => {
-        profilePicture.src = res.avatar;
+        profileAvatar.src = res.avatar;
+        profilePictureModal.resetButtonState();
       })
       .catch((err) => {
         api.logError(err);
       });
     profilePictureModal.close();
-  }
+  },
+  "Save"
 );
 
 profilePictureModal.setEventListeners();
@@ -128,24 +137,30 @@ profilePictureEditBtn.addEventListener("click", () => {
 
 //--------------------ADD CARD POPUP-WITH-FORM INSTANTIATION-------------------->>
 
-const addModal = new PopupWithForm("#profile-add-modal", () => {
-  const { title, url } = addModal.getInputValues();
-  api
-    .addNewCard({ name: title, link: url })
-    .then((cardData) => {
-      const newCard = renderCard({
-        name: cardData.name,
-        link: cardData.link,
-        _id: cardData._id,
-        isLiked: cardData.isLiked,
+const addModal = new PopupWithForm(
+  "#profile-add-modal",
+  () => {
+    addModal.loadingButtonState();
+    const { title, url } = addModal.getInputValues();
+    api
+      .addNewCard({ name: title, link: url })
+      .then((cardData) => {
+        const newCard = renderCard({
+          name: cardData.name,
+          link: cardData.link,
+          _id: cardData._id,
+          isLiked: cardData.isLiked,
+        });
+        cardSection.addItem(newCard);
+        addModal.resetButtonState();
+      })
+      .catch((err) => {
+        api.logError(err);
       });
-      cardSection.addItem(newCard);
-    })
-    .catch((err) => {
-      api.logError(err);
-    });
-  addModal.close();
-});
+    addModal.close();
+  },
+  "Create"
+);
 
 addModal.setEventListeners();
 
@@ -176,12 +191,13 @@ function renderCard(data) {
 
       deleteModal.setSubmitAction(() => {
         deleteModal.loadingButtonState();
+
         api
           .deleteCard(id)
           .then(() => {
             cardElement.deleteHandler();
             deleteModal.close();
-            deleteModal.defaultButtonState();
+            deleteModal.resetButtonState();
           })
           .catch((err) => {
             api.logError(err);

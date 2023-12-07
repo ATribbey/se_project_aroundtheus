@@ -24,7 +24,7 @@ export default class PopupWithConfirmation extends Popup {
     this._confirmBtn.textContent = "Deleting...";
   }
 
-  defaultButtonState() {
+  resetButtonState() {
     this._confirmBtn.textContent = "Yes";
   }
 }
