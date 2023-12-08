@@ -34,6 +34,19 @@ import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 const api = new Api(apiOptions);
 
+//--------------------VALIDATION INSTANTIATORS-------------------->>
+
+const profileEditValidation = new FormValidator(options, profileEditForm);
+const addCardValidation = new FormValidator(options, cardAddForm);
+const profilePictureValidation = new FormValidator(
+  options,
+  profilePictureEditForm
+);
+
+profileEditValidation.enableValidation();
+addCardValidation.enableValidation();
+profilePictureValidation.enableValidation();
+
 //--------------------POPUPWITHIMAGE INSTANTIATION-------------------->>
 
 const imagePopup = new PopupWithImage("#card-preview-modal");
@@ -116,9 +129,7 @@ profileEditBtn.addEventListener("click", () => {
 
 const profilePictureModal = new PopupWithForm(
   "#profile-picture-edit-modal",
-  () => {
-    const values = profilePictureModal.getInputValues();
-
+  (values) => {
     profilePictureModal.loadingButtonState();
     api
       .setProfilePicture(values.url)
@@ -237,16 +248,3 @@ function renderCard(data) {
   );
   return cardElement.getNewCard();
 }
-
-//--------------------VALIDATION INSTANTIATORS-------------------->>
-
-const profileEditValidation = new FormValidator(options, profileEditForm);
-const addCardValidation = new FormValidator(options, cardAddForm);
-const profilePictureValidation = new FormValidator(
-  options,
-  profilePictureEditForm
-);
-
-profileEditValidation.enableValidation();
-addCardValidation.enableValidation();
-profilePictureValidation.enableValidation();
