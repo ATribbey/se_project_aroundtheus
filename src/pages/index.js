@@ -117,9 +117,11 @@ profileEditBtn.addEventListener("click", () => {
 const profilePictureModal = new PopupWithForm(
   "#profile-picture-edit-modal",
   () => {
+    const values = profilePictureModal.getInputValues();
+
     profilePictureModal.loadingButtonState();
     api
-      .setProfilePicture(profilePictureFormInput.value)
+      .setProfilePicture(values.url)
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
         profilePictureModal.close();
