@@ -6,6 +6,7 @@ export default class PopupWithForm extends Popup {
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
     this._submitType = submitType;
+    this._submitBtn = this._popupElement.querySelector(".modal__button");
   }
 
   getInputValues() {
@@ -36,12 +37,10 @@ export default class PopupWithForm extends Popup {
   }
 
   loadingButtonState() {
-    this._confirmBtn = this._popupElement.querySelector(".modal__button");
-
-    this._confirmBtn.textContent = "Saving...";
+    this._submitBtn.textContent = "Saving...";
   }
 
   resetButtonState() {
-    this._confirmBtn.textContent = `${this._submitType}`;
+    this._submitBtn.textContent = `${this._submitType}`;
   }
 }

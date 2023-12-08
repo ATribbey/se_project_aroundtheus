@@ -4,6 +4,7 @@ export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector("#confirm-delete-form");
+    this._confirmBtn = this._popupElement.querySelector("#delete-card-btn");
   }
 
   setSubmitAction(handleFormSubmit) {
@@ -19,8 +20,6 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   loadingButtonState() {
-    this._confirmBtn = this._popupElement.querySelector("#delete-card-btn");
-
     this._confirmBtn.textContent = "Deleting...";
   }
 

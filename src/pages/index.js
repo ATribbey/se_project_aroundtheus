@@ -56,7 +56,7 @@ api
     cardSection.renderItems(cardData);
   })
   .catch((err) => {
-    api.logError(err);
+    console.error(err);
   });
 
 //--------------------USER-INFO INSTANTIATION-------------------->>
@@ -74,7 +74,7 @@ api
     userInfo.setUserAvatar(userData.avatar);
   })
   .catch((err) => {
-    api.logError(err);
+    console.error(err);
   });
 
 //-------------------- EDIT PROFILE POPUP-WITH-FORM INSTANTIATION-------------------->>
@@ -90,7 +90,7 @@ const editModal = new PopupWithForm(
         editModal.close();
       })
       .catch((err) => {
-        api.logError(err);
+        console.error(err);
       })
       .finally(() => {
         editModal.resetButtonState();
@@ -123,7 +123,7 @@ const profilePictureModal = new PopupWithForm(
         profilePictureModal.close();
       })
       .catch((err) => {
-        api.logError(err);
+        console.error(err);
       })
       .finally(() => {
         profilePictureModal.resetButtonState();
@@ -142,23 +142,17 @@ profilePictureEditBtn.addEventListener("click", () => {
 
 const addModal = new PopupWithForm(
   "#profile-add-modal",
-  () => {
+  ({ title, url }) => {
     addModal.loadingButtonState();
-    const { title, url } = addModal.getInputValues();
     api
       .addNewCard({ name: title, link: url })
       .then((cardData) => {
-        const newCard = renderCard({
-          name: cardData.name,
-          link: cardData.link,
-          _id: cardData._id,
-          isLiked: cardData.isLiked,
-        });
+        const newCard = renderCard(cardData);
         cardSection.addItem(newCard);
         addModal.close();
       })
       .catch((err) => {
-        api.logError(err);
+        console.error(err);
       })
       .finally(() => {
         addModal.resetButtonState();
@@ -205,7 +199,7 @@ function renderCard(data) {
             deleteModal.resetButtonState();
           })
           .catch((err) => {
-            api.logError(err);
+            console.error(err);
           });
       });
     },
@@ -219,7 +213,7 @@ function renderCard(data) {
             cardElement.likeHandler();
           })
           .catch((err) => {
-            api.logError(err);
+            console.error(err);
           });
       } else {
         api
@@ -228,7 +222,7 @@ function renderCard(data) {
             cardElement.likeHandler();
           })
           .catch((err) => {
-            api.logError(err);
+            console.error(err);
           });
       }
     }
