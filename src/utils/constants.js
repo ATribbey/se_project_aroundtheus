@@ -38,6 +38,9 @@ const profilePictureEditBtn = document.querySelector(
   "#profile-picture-edit-btn"
 );
 const profilePictureEditForm = document.querySelector("#profile-picture-form");
+const profilePictureSubmitBtn = document.querySelector(
+  "#profile-picture-submit-btn"
+);
 const profilePictureFormInput = document.querySelector(
   "#profile-picture-input"
 );
@@ -52,6 +55,7 @@ const profileDescriptionInput = document.querySelector(
 
 const addCardBtn = document.querySelector("#profile-add-btn");
 const addCardModal = document.querySelector("#profile-add-modal");
+const addCardSubmitBtn = document.querySelector("#add-card-btn");
 const cardAddForm = addCardModal.querySelector("#card-add-form");
 const cardTitleInput = cardAddForm.querySelector("#profile-add-title-input");
 const cardUrlInput = cardAddForm.querySelector("#profile-add-url-input");
@@ -85,6 +89,7 @@ export {
   profileAvatar,
   profilePictureEditBtn,
   profilePictureEditForm,
+  profilePictureSubmitBtn,
   profilePictureFormInput,
   profileEditBtn,
   profileEditForm,
@@ -92,6 +97,7 @@ export {
   profileDescriptionInput,
   addCardBtn,
   cardAddForm,
+  addCardSubmitBtn,
   cardTitleInput,
   cardUrlInput,
   options,

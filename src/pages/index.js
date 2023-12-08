@@ -13,6 +13,7 @@ import {
   profileAvatar,
   profilePictureEditBtn,
   profilePictureEditForm,
+  profilePictureSubmitBtn,
   profilePictureFormInput,
   profileEditBtn,
   profileEditForm,
@@ -20,6 +21,7 @@ import {
   profileDescriptionInput,
   addCardBtn,
   cardAddForm,
+  addCardSubmitBtn,
   cardTitleInput,
   cardUrlInput,
   options,
@@ -119,8 +121,9 @@ const profilePictureModal = new PopupWithForm(
     api
       .setProfilePicture(profilePictureFormInput.value)
       .then((res) => {
-        profileAvatar.src = res.avatar;
+        userInfo.setUserAvatar(res.avatar);
         profilePictureModal.close();
+        profilePictureSubmitBtn.classList.add("modal__button_disabled");
       })
       .catch((err) => {
         console.error(err);
@@ -150,6 +153,7 @@ const addModal = new PopupWithForm(
         const newCard = renderCard(cardData);
         cardSection.addItem(newCard);
         addModal.close();
+        addCardSubmitBtn.classList.add("modal__button_disabled");
       })
       .catch((err) => {
         console.error(err);
@@ -196,10 +200,12 @@ function renderCard(data) {
           .then(() => {
             cardElement.deleteHandler();
             deleteModal.close();
-            deleteModal.resetButtonState();
           })
           .catch((err) => {
             console.error(err);
+          })
+          .finally(() => {
+            deleteModal.resetButtonState();
           });
       });
     },
