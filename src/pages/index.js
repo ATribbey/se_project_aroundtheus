@@ -136,7 +136,7 @@ const profilePictureModal = new PopupWithForm(
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
         profilePictureModal.close();
-        profilePictureSubmitBtn.classList.add("modal__button_disabled");
+        profilePictureValidation.disableButton();
       })
       .catch((err) => {
         console.error(err);
@@ -166,7 +166,7 @@ const addModal = new PopupWithForm(
         const newCard = renderCard(cardData);
         cardSection.addItem(newCard);
         addModal.close();
-        addCardSubmitBtn.classList.add("modal__button_disabled");
+        addCardValidation.disableButton();
       })
       .catch((err) => {
         console.error(err);

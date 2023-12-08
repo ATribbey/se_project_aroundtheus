@@ -9,7 +9,7 @@ export default class PopupWithForm extends Popup {
     this._submitBtn = this._popupElement.querySelector(".modal__button");
   }
 
-  getInputValues() {
+  _getInputValues() {
     const inputList = Array.from(
       this._popupForm.querySelectorAll(".modal__input")
     );
@@ -31,7 +31,7 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     this._popupForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      this._handleFormSubmit(this.getInputValues());
+      this._handleFormSubmit(this._getInputValues());
     });
     super.setEventListeners();
   }
